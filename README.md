@@ -12,12 +12,12 @@ A physiology-based digital twin that rehearses tonight to prevent night-time hyp
 | | |
 |---|---|
 | **Team name** | TwinPulse |
-| **Team members** | Manan Gilhotra (team leader) · Manas Saxena |
+| **Team members** | Manas Saxena (team leader) · Manan Gilhotra |
 | **College / incubator** | Newton School of Technology, Rishihood University |
 | **Project title** | NightTwin: a physiology-based digital twin that rehearses tonight to prevent night-time hypoglycaemia in Indian children with type 1 diabetes |
 | **Condition** | Type 1 diabetes (insulin-treated diabetes); adverse event: night-time hypoglycaemia |
 | **Live demo** | https://manangilhotra.github.io/TwinPulse_NewtonSchoolOfTechnology_RishihoodUniversity/ |
-| **Demo video (23 min)** | [Watch / download NightTwin_Walkthrough.mp4](https://github.com/MananGilhotra/TwinPulse_NewtonSchoolOfTechnology_RishihoodUniversity/releases/download/v1.0/NightTwin_Walkthrough.mp4) (narrated walkthrough, 1080p) · [release page](https://github.com/MananGilhotra/TwinPulse_NewtonSchoolOfTechnology_RishihoodUniversity/releases/tag/v1.0) · script: [docs/VIDEO_SCRIPT.md](docs/VIDEO_SCRIPT.md) |
+| **Demo video (22 min)** | [Watch / download NightTwin_Walkthrough.mp4](https://github.com/MananGilhotra/TwinPulse_NewtonSchoolOfTechnology_RishihoodUniversity/releases/download/v1.0/NightTwin_Walkthrough.mp4) (produced walkthrough with recorded live demo, 1080p, captions) · [release page](https://github.com/MananGilhotra/TwinPulse_NewtonSchoolOfTechnology_RishihoodUniversity/releases/tag/v1.0) · script: [docs/VIDEO_SCRIPT.md](docs/VIDEO_SCRIPT.md) |
 | **Architecture diagram** | [docs/TwinPulse_Architecture.pdf](docs/TwinPulse_Architecture.pdf) |
 | **Presentation** | [docs/TwinPulse_Presentation.pdf](docs/TwinPulse_Presentation.pdf) · [.pptx](docs/TwinPulse_Presentation.pptx) |
 | **Open-source licence** | Apache License 2.0 ([LICENSE](LICENSE)) |
@@ -156,7 +156,7 @@ Then open http://localhost:8000. Trained models and the synthetic demo cohort ar
 .venv/bin/python scripts/make_figures.py        # docs/figures/
 .venv/bin/python scripts/make_architecture.py   # docs/TwinPulse_Architecture.pdf
 ./scripts/deploy_pages.sh                       # static live demo -> GitHub Pages (twin runs in the browser)
-.venv/bin/python scripts/make_video.py          # narrated walkthrough video (macOS voices; app must be running)
+.venv/bin/python -m pip install -r requirements-video.txt && .venv/bin/python scripts/make_video.py   # produced walkthrough video (neural voices, recorded live demo, captions; app must be running)
 ```
 
 **Development mode:** run `.venv/bin/uvicorn api.main:app --port 8000`, then `cd dashboard && npm install && npm run dev` (http://localhost:5173).
