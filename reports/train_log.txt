@@ -1,0 +1,204 @@
+{
+ "night": {
+  "n_nights": 1046,
+  "n_patients": 25,
+  "cv": {
+   "rule_bedtime_bg": {
+    "auroc": 0.5942936542197279,
+    "auprc": 0.3527457541380451,
+    "prevalence": 0.21606118546845124,
+    "parent_sleep": [
+     {
+      "target_caught": 0.7,
+      "caught": 0.7035398230088495,
+      "nights_alarm": 0.6481835564053537,
+      "nights_sleep_through": 0.35181644359464626,
+      "false_alarm_nights": 0.6329268292682927,
+      "threshold": -164.66666666666666
+     },
+     {
+      "target_caught": 0.8,
+      "caught": 0.8008849557522124,
+      "nights_alarm": 0.760038240917782,
+      "nights_sleep_through": 0.23996175908221795,
+      "false_alarm_nights": 0.748780487804878,
+      "threshold": -182.0
+     },
+     {
+      "target_caught": 0.9,
+      "caught": 0.9026548672566371,
+      "nights_alarm": 0.878585086042065,
+      "nights_sleep_through": 0.12141491395793502,
+      "false_alarm_nights": 0.8719512195121951,
+      "threshold": -225.66666666666663
+     }
+    ]
+   },
+   "rule_bedtime_fingerstick": {
+    "auroc": 0.5551370602201597,
+    "auprc": 0.30666133380267385,
+    "prevalence": 0.21606118546845124,
+    "parent_sleep": [
+     {
+      "target_caught": 0.7,
+      "caught": 0.7035398230088495,
+      "nights_alarm": 0.6912045889101338,
+      "nights_sleep_through": 0.3087954110898662,
+      "false_alarm_nights": 0.6878048780487804,
+      "threshold": -170.0
+     },
+     {
+      "target_caught": 0.8,
+      "caught": 0.8008849557522124,
+      "nights_alarm": 0.7839388145315488,
+      "nights_sleep_through": 0.2160611854684512,
+      "false_alarm_nights": 0.7792682926829269,
+      "threshold": -197.33333333333337
+     },
+     {
+      "target_caught": 0.9,
+      "caught": 0.9026548672566371,
+      "nights_alarm": 0.8709369024856597,
+      "nights_sleep_through": 0.1290630975143403,
+      "false_alarm_nights": 0.8621951219512195,
+      "threshold": -227.66666666666663
+     }
+    ]
+   },
+   "logistic_bedtime_bg": {
+    "auroc": 0.5657781135333477,
+    "auprc": 0.318158200377329,
+    "prevalence": 0.21606118546845124
+   },
+   "cgm_only": {
+    "auroc": 0.5955266565939996,
+    "auprc": 0.310422193260026,
+    "prevalence": 0.21606118546845124,
+    "parent_sleep": [
+     {
+      "target_caught": 0.7,
+      "caught": 0.7035398230088495,
+      "nights_alarm": 0.5879541108986616,
+      "nights_sleep_through": 0.41204588910133844,
+      "false_alarm_nights": 0.5560975609756098,
+      "threshold": 0.15229221860282263
+     },
+     {
+      "target_caught": 0.8,
+      "caught": 0.8008849557522124,
+      "nights_alarm": 0.719885277246654,
+      "nights_sleep_through": 0.28011472275334603,
+      "false_alarm_nights": 0.697560975609756,
+      "threshold": 0.11691088642724402
+     },
+     {
+      "target_caught": 0.9,
+      "caught": 0.9026548672566371,
+      "nights_alarm": 0.8422562141491395,
+      "nights_sleep_through": 0.15774378585086046,
+      "false_alarm_nights": 0.8256097560975609,
+      "threshold": 0.0831134318624449
+     }
+    ]
+   },
+   "cgm_insulin_meals": {
+    "auroc": 0.5905352903086553,
+    "auprc": 0.3134497624038151,
+    "prevalence": 0.21606118546845124,
+    "parent_sleep": [
+     {
+      "target_caught": 0.7,
+      "caught": 0.7035398230088495,
+      "nights_alarm": 0.6061185468451242,
+      "nights_sleep_through": 0.39388145315487577,
+      "false_alarm_nights": 0.5792682926829268,
+      "threshold": 0.17253793870430315
+     },
+     {
+      "target_caught": 0.8,
+      "caught": 0.8008849557522124,
+      "nights_alarm": 0.7170172084130019,
+      "nights_sleep_through": 0.28298279158699813,
+      "false_alarm_nights": 0.6939024390243902,
+      "threshold": 0.13867981132773782
+     },
+     {
+      "target_caught": 0.9,
+      "caught": 0.9026548672566371,
+      "nights_alarm": 0.8652007648183556,
+      "nights_sleep_through": 0.13479923518164438,
+      "false_alarm_nights": 0.8548780487804878,
+      "threshold": 0.09196790856813458
+     }
+    ]
+   },
+   "cgm_insulin_meals_wearable": {
+    "auroc": 0.5837524282322469,
+    "auprc": 0.2821606115864687,
+    "prevalence": 0.21606118546845124,
+    "parent_sleep": [
+     {
+      "target_caught": 0.7,
+      "caught": 0.7035398230088495,
+      "nights_alarm": 0.6089866156787763,
+      "nights_sleep_through": 0.3910133843212237,
+      "false_alarm_nights": 0.5829268292682926,
+      "threshold": 0.15452303523674982
+     },
+     {
+      "target_caught": 0.8,
+      "caught": 0.8008849557522124,
+      "nights_alarm": 0.737093690248566,
+      "nights_sleep_through": 0.26290630975143403,
+      "false_alarm_nights": 0.7195121951219512,
+      "threshold": 0.11567554508995675
+     },
+     {
+      "target_caught": 0.9,
+      "caught": 0.9026548672566371,
+      "nights_alarm": 0.8986615678776291,
+      "nights_sleep_through": 0.10133843212237093,
+      "false_alarm_nights": 0.8975609756097561,
+      "threshold": 0.07267693096479445
+     }
+    ]
+   },
+   "full_twin": {
+    "auroc": 0.5996654435570903,
+    "auprc": 0.30055641628159685,
+    "prevalence": 0.21606118546845124,
+    "parent_sleep": [
+     {
+      "target_caught": 0.7,
+      "caught": 0.7035398230088495,
+      "nights_alarm": 0.609942638623327,
+      "nights_sleep_through": 0.390057361376673,
+      "false_alarm_nights": 0.5841463414634146,
+      "threshold": 0.15398484484156647
+     },
+     {
+      "target_caught": 0.8,
+      "caught": 0.8008849557522124,
+      "nights_alarm": 0.7552581261950286,
+      "nights_sleep_through": 0.24474187380497137,
+      "false_alarm_nights": 0.7426829268292683,
+      "threshold": 0.11432972516315942
+     },
+     {
+      "target_caught": 0.9,
+      "caught": 0.9026548672566371,
+      "nights_alarm": 0.8948374760994264,
+      "nights_sleep_through": 0.10516252390057357,
+      "false_alarm_nights": 0.8926829268292683,
+      "threshold": 0.07869092968171307
+     }
+    ]
+   },
+   "fingerstick_only": {
+    "auroc": 0.5502212389380531,
+    "auprc": 0.2651017954409648,
+    "prevalence": 0.21606118546845124,
+    "parent_sleep": [
+     {
+      "target_caught": 0.7,
+      "c

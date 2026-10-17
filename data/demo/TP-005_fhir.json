@@ -1,0 +1,378 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "id": "TP-005-bundle",
+  "meta": {
+    "tag": [
+      {
+        "code": "SYNTHETIC",
+        "display": "Synthetic demo data - not a real person"
+      }
+    ]
+  },
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "TP-005",
+        "identifier": [
+          {
+            "system": "urn:twinpulse:synthetic-abha",
+            "value": "91-0000-SYNTH"
+          }
+        ],
+        "name": [
+          {
+            "given": [
+              "Kavya"
+            ],
+            "text": "Kavya (synthetic)"
+          }
+        ],
+        "gender": "female",
+        "birthDate": "2011-06-15",
+        "address": [
+          {
+            "text": "Madurai, Tamil Nadu",
+            "country": "IN"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "text": "Tamil"
+            },
+            "preferred": true
+          }
+        ],
+        "contact": [
+          {
+            "relationship": [
+              {
+                "text": "Parent/guardian"
+              }
+            ],
+            "name": {
+              "text": "Selvi (mother)"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "TP-005-t1d",
+        "subject": {
+          "reference": "Patient/TP-005"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "46635009",
+              "display": "Type 1 diabetes mellitus"
+            }
+          ]
+        },
+        "onsetAge": {
+          "value": 11,
+          "unit": "a"
+        },
+        "clinicalStatus": {
+          "text": "active"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "TP-005-4548-4",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "4548-4",
+              "display": "Hemoglobin A1c"
+            }
+          ],
+          "text": "Hemoglobin A1c"
+        },
+        "subject": {
+          "reference": "Patient/TP-005"
+        },
+        "effectiveDateTime": "2026-10-01",
+        "valueQuantity": {
+          "value": 6.4,
+          "unit": "%"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "TP-005-718-7",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "718-7",
+              "display": "Hemoglobin"
+            }
+          ],
+          "text": "Hemoglobin"
+        },
+        "subject": {
+          "reference": "Patient/TP-005"
+        },
+        "effectiveDateTime": "2026-10-01",
+        "valueQuantity": {
+          "value": 12.0,
+          "unit": "g/dL"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "TP-005-29463-7",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "29463-7",
+              "display": "Body weight"
+            }
+          ],
+          "text": "Body weight"
+        },
+        "subject": {
+          "reference": "Patient/TP-005"
+        },
+        "effectiveDateTime": "2026-10-01",
+        "valueQuantity": {
+          "value": 46.6,
+          "unit": "kg"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "TP-005-8302-2",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8302-2",
+              "display": "Body height"
+            }
+          ],
+          "text": "Body height"
+        },
+        "subject": {
+          "reference": "Patient/TP-005"
+        },
+        "effectiveDateTime": "2026-10-01",
+        "valueQuantity": {
+          "value": 158.76,
+          "unit": "cm"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "TP-005-tdd",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "urn:twinpulse",
+              "code": "tdd",
+              "display": "Total daily insulin dose"
+            }
+          ],
+          "text": "Total daily insulin dose"
+        },
+        "subject": {
+          "reference": "Patient/TP-005"
+        },
+        "effectiveDateTime": "2026-10-01",
+        "valueQuantity": {
+          "value": 47.3,
+          "unit": "U/day"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "TP-005-severe-hypo-12m",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "urn:twinpulse",
+              "code": "severe-hypo-12m",
+              "display": "Severe hypoglycaemia episodes, last 12 months"
+            }
+          ],
+          "text": "Severe hypoglycaemia episodes, last 12 months"
+        },
+        "subject": {
+          "reference": "Patient/TP-005"
+        },
+        "effectiveDateTime": "2026-10-01",
+        "valueQuantity": {
+          "value": 1,
+          "unit": "episodes"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "TP-005-hypo-awareness",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "urn:twinpulse",
+              "code": "hypo-awareness",
+              "display": "Hypoglycaemia awareness"
+            }
+          ],
+          "text": "Hypoglycaemia awareness"
+        },
+        "subject": {
+          "reference": "Patient/TP-005"
+        },
+        "effectiveDateTime": "2026-10-01",
+        "valueString": "Normal"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "TP-005-hla",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "urn:twinpulse",
+              "code": "hla",
+              "display": "HLA risk genotype (synthetic)"
+            }
+          ],
+          "text": "HLA risk genotype (synthetic)"
+        },
+        "subject": {
+          "reference": "Patient/TP-005"
+        },
+        "effectiveDateTime": "2026-10-01",
+        "valueString": "HLA-DR4/DR4"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "TP-005-autoantibodies",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "urn:twinpulse",
+              "code": "autoantibodies",
+              "display": "Islet autoantibodies (synthetic)"
+            }
+          ],
+          "text": "Islet autoantibodies (synthetic)"
+        },
+        "subject": {
+          "reference": "Patient/TP-005"
+        },
+        "effectiveDateTime": "2026-10-01",
+        "valueString": "GAD65 negative, IA-2 positive, ZnT8 positive"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "TP-005-strips",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "urn:twinpulse",
+              "code": "strips",
+              "display": "Glucose test strips affordable per day"
+            }
+          ],
+          "text": "Glucose test strips affordable per day"
+        },
+        "subject": {
+          "reference": "Patient/TP-005"
+        },
+        "effectiveDateTime": "2026-10-01",
+        "valueQuantity": {
+          "value": 2,
+          "unit": "strips/day"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "TP-005-insulin",
+        "status": "active",
+        "subject": {
+          "reference": "Patient/TP-005"
+        },
+        "medicationCodeableConcept": {
+          "text": "Human insulin: NPH + Regular, twice daily (before breakfast and dinner)"
+        },
+        "note": [
+          {
+            "text": "Supply: State programme (human insulin)"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Consent",
+        "id": "TP-005-consent",
+        "status": "active",
+        "scope": {
+          "text": "Treatment"
+        },
+        "category": [
+          {
+            "text": "Verifiable parental consent (DPDP Act 2023, s.9) for health services by the clinic"
+          }
+        ],
+        "patient": {
+          "reference": "Patient/TP-005"
+        },
+        "performer": [
+          {
+            "display": "Selvi (mother)"
+          }
+        ],
+        "provision": {
+          "type": "permit",
+          "purpose": [
+            {
+              "display": "Provision of health services to the child"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
