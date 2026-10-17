@@ -17,4 +17,4 @@ if [ ! -f dashboard/dist/index.html ]; then
 fi
 
 echo "TwinPulse is starting on http://localhost:8000  (Ctrl+C to stop)"
-exec .venv/bin/uvicorn api.main:app --host 0.0.0.0 --port "${PORT:-8000}"
+exec .venv/bin/python -m uvicorn api.main:app --host 0.0.0.0 --port "${PORT:-8000}"
