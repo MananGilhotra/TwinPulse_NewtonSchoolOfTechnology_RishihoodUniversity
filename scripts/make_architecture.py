@@ -39,7 +39,7 @@ def column_label(ax, x, text):
 
 
 def page1(ax):
-    ax.text(0.02, 0.965, "TwinPulse: system architecture", fontsize=20, fontweight="bold", color=INK)
+    ax.text(0.02, 0.965, "NightTwin (Team TwinPulse, Newton School of Technology, Rishihood University): system architecture", fontsize=18, fontweight="bold", color=INK)
     ax.text(0.02, 0.925, "Digital twin that rehearses tonight to prevent night-time hypoglycaemia in children with type 1 diabetes",
             fontsize=11, color=MUTED)
     for x, t in [(0.02, "1  DATA"), (0.215, "2  PREPARE"), (0.41, "3  MODELS"), (0.645, "4  SERVE"), (0.80, "5  USERS")]:
@@ -92,7 +92,7 @@ def page1(ax):
 
 
 def page2(ax):
-    ax.text(0.02, 0.965, "One night with TwinPulse", fontsize=20, fontweight="bold", color=INK)
+    ax.text(0.02, 0.965, "One night with NightTwin", fontsize=18, fontweight="bold", color=INK)
     ax.text(0.02, 0.925, "What happens, when, and who sees it", fontsize=11, color=MUTED)
     steps = [
         ("All day", "Data arrives", "CGM or finger-pricks, insulin doses, meals, steps and heart rate stream into the child's 5-minute timeline.", "data"),

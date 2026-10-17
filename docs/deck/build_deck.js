@@ -10,7 +10,8 @@ const SHOT = (f) => path.join(ROOT, "docs", "screenshots", f);
 const M = JSON.parse(fs.readFileSync(path.join(ROOT, "reports", "metrics.json")));
 const X = JSON.parse(fs.readFileSync(path.join(ROOT, "reports", "metrics_extra.json")));
 const TEAM = process.env.TEAM || "Team TwinPulse";
-const COLLEGE = process.env.COLLEGE || "";
+const PROJECT = "NightTwin";
+const COLLEGE = process.env.COLLEGE || "Newton School of Technology, Rishihood University";
 const OUT = path.join(ROOT, "docs", "TwinPulse_Presentation.pptx");
 
 const THEME = {
@@ -27,7 +28,7 @@ const HEX = THEME.colors;
 
 const pres = new pptxgen();
 pres.layout = "LAYOUT_WIDE"; // 13.333 x 7.5
-pres.title = "TwinPulse: the twin lives the night first";
+pres.title = "NightTwin by Team TwinPulse: the twin lives the night first";
 pres.author = "Team TwinPulse";
 pres.theme = { headFontFace: THEME.headFontFace, bodyFontFace: THEME.bodyFontFace };
 const C = pres.SchemeColor;
@@ -48,7 +49,7 @@ pres.defineSlideMaster({
   margin: [0.5, 0.6, 0.6, 0.6],
   objects: [
     { placeholder: { options: { name: "title", type: "title", x: 0.6, y: 0.35, w: 12.1, h: 0.85, fontSize: 32, bold: true, color: C.text1, valign: "middle", align: "left", fontFace: THEME.headFontFace }, text: "" } },
-    { text: { text: "TwinPulse · The twin lives the night first", options: { x: 0.6, y: 7.05, w: 8, h: 0.3, fontSize: 10, color: C.text2 } } },
+    { text: { text: "NightTwin by Team TwinPulse · Newton School of Technology, Rishihood University", options: { x: 0.6, y: 7.05, w: 8, h: 0.3, fontSize: 10, color: C.text2 } } },
   ],
   slideNumber: { x: 12.2, y: 7.05, w: 0.6, h: 0.3, fontSize: 10, color: C.text2, align: "right" },
 });
@@ -57,7 +58,7 @@ pres.defineSlideMaster({
   background: { color: HEX.dk1 },
   objects: [
     { placeholder: { options: { name: "title", type: "title", x: 0.6, y: 0.35, w: 12.1, h: 0.85, fontSize: 32, bold: true, color: C.background1, valign: "middle", align: "left", fontFace: THEME.headFontFace }, text: "" } },
-    { text: { text: "TwinPulse · The twin lives the night first", options: { x: 0.6, y: 7.05, w: 8, h: 0.3, fontSize: 10, color: C.accent5 } } },
+    { text: { text: "NightTwin by Team TwinPulse · Newton School of Technology, Rishihood University", options: { x: 0.6, y: 7.05, w: 8, h: 0.3, fontSize: 10, color: C.accent5 } } },
   ],
   slideNumber: { x: 12.2, y: 7.05, w: 0.6, h: 0.3, fontSize: 10, color: C.accent5, align: "right" },
 });
@@ -100,14 +101,14 @@ const ana = { base: 0.58, plan: 0.14 };
 // ---------- 1. title ----------
 pres.addSection({ title: "Opening" });
 let s = pres.addSlide({ masterName: "TITLE_DARK", sectionTitle: "Opening" });
-txt(s, "TWINPULSE · DIGITAL TWIN CHALLENGE 2026", { x: 0.7, y: 1.55, w: 8, h: 0.4, fontSize: 14, bold: true, color: C.accent2, charSpacing: 3 });
-s.addText("The twin lives the night first", { placeholder: "title" });
+txt(s, "TEAM TWINPULSE · HAPPIEST HEALTH DIGITAL TWIN CHALLENGE 2026", { x: 0.7, y: 1.55, w: 9, h: 0.4, fontSize: 14, bold: true, color: C.accent2, charSpacing: 3 });
+s.addText("NightTwin: the twin lives the night first", { placeholder: "title" });
 s.addText("A physiology-based digital twin that rehearses tonight to prevent night-time hypoglycaemia in Indian children with type 1 diabetes", { placeholder: "body" });
 txt(s, [TEAM, COLLEGE].filter(Boolean).join(" · "), { x: 0.7, y: 6.2, w: 8, h: 0.4, fontSize: 16, color: C.background1 });
 s.addShape(pres.shapes.OVAL, { x: 9.9, y: 1.7, w: 2.6, h: 2.6, fill: { color: C.accent2 }, line: { color: C.accent2 }, objectName: "moon" });
 s.addShape(pres.shapes.OVAL, { x: 10.6, y: 1.45, w: 2.4, h: 2.4, fill: { color: C.text1 }, line: { color: C.text1 }, objectName: "moon-shadow" });
 txt(s, "21:00 → 07:00\n500 nights rehearsed\nbefore one is lived", { x: 9.6, y: 4.7, w: 3.2, h: 1.3, fontSize: 16, color: C.accent5, align: "right" });
-s.addNotes("Hello, we are Team TwinPulse. Our project is a digital twin that lives the night first: before a child with type 1 diabetes goes to sleep, her twin rehearses tonight 500 times, so the doctor can see the danger and fix it before it happens.");
+s.addNotes("Hello, we are Team TwinPulse from Newton School of Technology, Rishihood University. Our project, NightTwin, is a digital twin that lives the night first: before a child with type 1 diabetes goes to sleep, her twin rehearses tonight 500 times, so the doctor can see the danger and fix it before it happens.");
 
 // ---------- 2. story ----------
 s = pres.addSlide({ masterName: "CONTENT_DARK", sectionTitle: "Opening" });
@@ -140,7 +141,7 @@ s.addNotes("India has 2.29 lakh children and teens with type 1 diabetes, the mos
 // ---------- 4. solution ----------
 pres.addSection({ title: "Solution" });
 s = pres.addSlide({ masterName: "CONTENT", sectionTitle: "Solution" });
-s.addText("TwinPulse: learn the child, live tonight first, guard the real night", { placeholder: "title", fontSize: 28 });
+s.addText("NightTwin: learn the child, live tonight first, guard the real night", { placeholder: "title", fontSize: 28 });
 [["1", "Learn the child", "A personal glucose–insulin model is fitted to each child's own nights: insulin, meals, play, CGM or finger-pricks, plus the FHIR health record."],
  ["2", "Live tonight first", "At 9 PM the twin simulates tonight 500 times. The doctor sees who is at risk, when and why, and rehearses a fix on the twin before prescribing it."],
  ["3", "Guard the real night", "For CGM users, a model trained on real patients warns about an hour before a low and calls the parent in their own language."]].forEach(([k, t, b], i) => {
@@ -151,7 +152,7 @@ s.addText("TwinPulse: learn the child, live tonight first, guard the real night"
   txt(s, b, { x: x + 0.3, y: 3.5, w: 3.2, h: 2.4, fontSize: 16, color: C.text2 });
 });
 txt(s, "Decision support for clinicians. The doctor approves every change; families receive only approved actions.", { x: 0.6, y: 6.35, w: 12, h: 0.4, fontSize: 14, italic: true, color: C.text2 });
-s.addNotes("TwinPulse does three things. It learns each child as a personal physiology model. At 9 PM it lives tonight 500 times, so the doctor sees the risk and rehearses fixes. And for children with a CGM, it guards the real night, warning about an hour before a low.");
+s.addNotes("NightTwin does three things. It learns each child as a personal physiology model. At 9 PM it lives tonight 500 times, so the doctor sees the risk and rehearses fixes. And for children with a CGM, it guards the real night, warning about an hour before a low.");
 
 // ---------- 5. data fusion ----------
 s = pres.addSlide({ masterName: "CONTENT", sectionTitle: "Solution" });
@@ -178,7 +179,7 @@ s.addNotes("The twin fuses two streams, as the challenge asks. The static health
 pres.addSection({ title: "How it works" });
 s = pres.addSlide({ masterName: "CONTENT", sectionTitle: "How it works" });
 s.addText("Architecture", { placeholder: "title" });
-img(s, FIG("architecture.png"), 1.6, 1.2, 10.1, 2475 / 1395, "TwinPulse architecture: data, preparation, models, API, users, trust layer");
+img(s, FIG("architecture.png"), 1.6, 1.2, 10.1, 2475 / 1395, "NightTwin architecture: data, preparation, models, API, users, trust layer");
 s.addNotes("Data flows from the health record and wearables into a unified 5-minute timeline. Three models sit on top: the physiology twin, the LightGBM night guard, and sensor priority. A FastAPI service serves the doctor dashboard and the family channel, and a trust layer covers consent, privacy and doctor-in-the-loop.");
 
 // ---------- 7. physiology twin ----------
@@ -225,7 +226,7 @@ s.addChart(pres.charts.BAR, [
 const fc = M.realtime.forecast;
 s.addChart(pres.charts.BAR, [
   { name: "Assume no change", labels: ["30 min", "60 min", "2 h"], values: ["30min", "60min", "120min"].map((h) => +fc[h].persistence.rmse.toFixed(1)) },
-  { name: "TwinPulse", labels: ["30 min", "60 min", "2 h"], values: ["30min", "60min", "120min"].map((h) => +fc[h].full_twin.rmse.toFixed(1)) },
+  { name: "NightTwin", labels: ["30 min", "60 min", "2 h"], values: ["30min", "60min", "120min"].map((h) => +fc[h].full_twin.rmse.toFixed(1)) },
 ], { ...chartBase, x: 6.9, y: 1.4, w: 5.85, h: 4.6, barDir: "col", chartColors: ["CBD5E1", HEX.accent1], showLegend: true, legendPos: "b", legendFontFace: "+mn-lt", legendFontSize: 12,
   showTitle: true, title: "Glucose forecast error, RMSE mg/dL (lower is better)", titleFontSize: 16, titleColor: "0F172A", dataLabelPosition: "outEnd", valAxisHidden: true, objectName: "chart-forecast" });
 txt(s, `Night-guard AUROC: ${M.realtime.low_next60.night_22_06_full_twin.auroc.toFixed(2)} for a low within 60 min, ${M.realtime.low_next120.night_22_06_full_twin.auroc.toFixed(2)} within 2 h. Clarke error grid A+B at 30 min: ${((fc["30min"].full_twin.clarke.A + fc["30min"].full_twin.clarke.B) * 100).toFixed(1)}%. Patients split into 5 groups, so every score is on people the model never saw.`,
@@ -263,7 +264,7 @@ stat(s, 7.7, 1.5, 2.4, pct(sr.top_third_later_rate), "of later nights had a low:
 stat(s, 10.3, 1.5, 2.4, pct(sr.bottom_third_later_rate), "bottom third", C.accent3);
 txt(s, `Spearman ${sr.spearman_week1_tbr_vs_later.toFixed(2)}. One ₹4–5k trial sensor per child, instead of ₹1.1 lakh a year for everyone, points a state programme's scarce CGMs at the children most at risk. The Sensor Priority screen does exactly this.`,
   { x: 7.7, y: 3.6, w: 5.0, h: 2.6, fontSize: 16, color: C.text2 });
-s.addNotes("Without nightly CGM we cannot guard every night. So TwinPulse helps share scarce sensors fairly. On real patients, one week of sensor data ranked who would have the most night lows later: 42 percent of later nights for the top third, versus 10 percent for the bottom third.");
+s.addNotes("Without nightly CGM we cannot guard every night. So NightTwin helps share scarce sensors fairly. On real patients, one week of sensor data ranked who would have the most night lows later: 42 percent of later nights for the top third, versus 10 percent for the bottom third.");
 
 // ---------- 13. dashboard ----------
 pres.addSection({ title: "Product" });
@@ -287,13 +288,13 @@ img(s, SHOT("patient_arjun_crop.png"), 0.6, 1.35, 7.2, 1350 / 960, "Night guard 
   txt(s, t, { x: 8.85, y, w: 3.9, h: 0.4, fontSize: 17, bold: true });
   txt(s, b, { x: 8.85, y: y + 0.42, w: 3.9, h: 0.8, fontSize: 14, color: C.text2 });
 });
-s.addNotes("TwinPulse is designed for India: alerts in the family's language, voice calls for feature phones, models of the human insulin our programmes supply, Indian routines like late dinners and evening cricket, and FHIR records ready for ABDM.");
+s.addNotes("NightTwin is designed for India: alerts in the family's language, voice calls for feature phones, models of the human insulin our programmes supply, Indian routines like late dinners and evening cricket, and FHIR records ready for ABDM.");
 
 // ---------- 15. privacy ----------
 pres.addSection({ title: "Trust and impact" });
 s = pres.addSlide({ masterName: "CONTENT", sectionTitle: "Trust and impact" });
 s.addText("Privacy, safety and regulation", { placeholder: "title" });
-[["Children's data (DPDP Act 2023)", "Section 9: verifiable parental consent; no tracking or behavioural monitoring of children. The DPDP Rules 2025 (Fourth Schedule) exempt clinics and healthcare professionals for health services to the child, so TwinPulse is deployed by the clinic as data fiduciary, with consent recorded anyway.", C.accent1],
+[["Children's data (DPDP Act 2023)", "Section 9: verifiable parental consent; no tracking or behavioural monitoring of children. The DPDP Rules 2025 (Fourth Schedule) exempt clinics and healthcare professionals for health services to the child, so NightTwin is deployed by the clinic as data fiduciary, with consent recorded anyway.", C.accent1],
  ["Doctor in the loop", "The twin only shows simulated outcomes. The doctor approves every change; families receive only approved actions. No advertising or analytics on children's data.", C.accent3],
  ["Path to the clinic", "Decision support, not a diagnosis. A real deployment would follow CDSCO's medical device software pathway after a supervised clinical pilot.", C.accent2]].forEach(([t, b, c], i) => {
   const x = 0.6 + i * 4.1;
@@ -302,7 +303,7 @@ s.addText("Privacy, safety and regulation", { placeholder: "title" });
   txt(s, t, { x: x + 0.3, y: 2.75, w: 3.2, h: 0.8, fontSize: 19, bold: true });
   txt(s, b, { x: x + 0.3, y: 3.6, w: 3.2, h: 2.6, fontSize: 14, color: C.text2 });
 });
-s.addNotes("Children's health data needs extra care. Under the DPDP Act, children's data needs verifiable parental consent, and the 2025 Rules exempt clinics providing health services, so TwinPulse is deployed by the clinic. The doctor stays in charge of every decision.");
+s.addNotes("Children's health data needs extra care. Under the DPDP Act, children's data needs verifiable parental consent, and the 2025 Rules exempt clinics providing health services, so NightTwin is deployed by the clinic. The doctor stays in charge of every decision.");
 
 // ---------- 16. impact ----------
 s = pres.addSlide({ masterName: "CONTENT", sectionTitle: "Trust and impact" });
@@ -336,10 +337,10 @@ s = pres.addSlide({ masterName: "TITLE_DARK", sectionTitle: "Close" });
 s.addText("Let the twin face the night first", { placeholder: "title" });
 s.addText("So a mother can sleep, and a child wakes up safe", { placeholder: "body" });
 txt(s, [TEAM, COLLEGE].filter(Boolean).join(" · "), { x: 0.7, y: 5.7, w: 8.5, h: 0.4, fontSize: 16, color: C.background1 });
-txt(s, "Code, data sources and results: see the GitHub README", { x: 0.7, y: 6.15, w: 8.5, h: 0.4, fontSize: 14, color: C.accent5 });
+txt(s, "Live demo: manangilhotra.github.io/TwinPulse_NewtonSchoolOfTechnology_RishihoodUniversity", { x: 0.7, y: 6.15, w: 8.5, h: 0.4, fontSize: 14, color: C.accent5 });
 s.addShape(pres.shapes.OVAL, { x: 9.9, y: 1.7, w: 2.6, h: 2.6, fill: { color: C.accent2 }, line: { color: C.accent2 }, objectName: "moon-close" });
 s.addShape(pres.shapes.OVAL, { x: 10.6, y: 1.45, w: 2.4, h: 2.4, fill: { color: C.text1 }, line: { color: C.text1 }, objectName: "moon-close-shadow" });
-s.addNotes("In 1970, NASA rehearsed the Apollo 13 rescue on a twin of the spacecraft before trying it for real. TwinPulse does the same for a child's night. Thank you.");
+s.addNotes("In 1970, NASA rehearsed the Apollo 13 rescue on a twin of the spacecraft before trying it for real. NightTwin does the same for a child's night. Thank you.");
 
 (async () => {
   await pres.writeFile({ fileName: OUT });

@@ -7,3 +7,5 @@ dashboard/dist/
 data/raw/
 data/processed/
 docs/deck/node_modules/
+dashboard/dist-pages/
+docs/video/

@@ -10,7 +10,7 @@ export default function About() {
           <ul>
             <li>Section 9 requires verifiable parental consent and bars tracking or behavioural monitoring of children.</li>
             <li>The DPDP Rules 2025 (Fourth Schedule) exempt clinical establishments and healthcare professionals when processing is limited to providing health services to the child.</li>
-            <li>So TwinPulse is deployed <b>by the clinic</b>, which is the data fiduciary. We still record parental consent, and there is no advertising or analytics on children's data.</li>
+            <li>So NightTwin is deployed <b>by the clinic</b>, which is the data fiduciary. We still record parental consent, and there is no advertising or analytics on children's data.</li>
           </ul>
         </div>
         <div className="card">

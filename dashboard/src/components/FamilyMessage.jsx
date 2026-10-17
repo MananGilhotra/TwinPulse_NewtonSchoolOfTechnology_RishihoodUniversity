@@ -31,7 +31,7 @@ export default function FamilyMessage({ meta, kind, plan }) {
   const call = meta.phone === 'feature phone' || kind === 'night'
   return (
     <div className="phone">
-      <div className="phone-top">{call ? '📞 Incoming voice call · TwinPulse' : '💬 WhatsApp · TwinPulse'}</div>
+      <div className="phone-top">{call ? '📞 Incoming voice call · NightTwin' : '💬 WhatsApp · NightTwin'}</div>
       <div className="phone-to">To {meta.parent} · {meta.phone}</div>
       {local && <div className={`phone-msg lang-${lang}`}>{local(meta.name)}</div>}
       <div className="phone-msg en">{english}</div>

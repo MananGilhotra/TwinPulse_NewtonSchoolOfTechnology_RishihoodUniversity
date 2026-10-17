@@ -75,7 +75,7 @@ export default function Board({ onOpen }) {
       <p className="muted small">
         Risk = share of the twin's 500 simulated nights that fall below 70 mg/dL for 15+ minutes between 00:00 and 06:00.
         Bedtime risk is a planning aid, not a diagnosis: on real patients, bedtime-only prediction is weak (see Evidence).
-        The in-night guard for CGM users is where TwinPulse is strongest.
+        The in-night guard for CGM users is where NightTwin is strongest.
       </p>
     </div>
   )

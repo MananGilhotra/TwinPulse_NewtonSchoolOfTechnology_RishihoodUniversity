@@ -17,10 +17,12 @@ const NAV = [
 export default function App() {
   const [view, setView] = useState('overview')
   const [patientId, setPatientId] = useState(null)
+  const [query, setQuery] = useState({})
 
   useEffect(() => {
     const onHash = () => {
-      const h = window.location.hash.slice(1)
+      const [h, qs] = window.location.hash.slice(1).split('?')
+      setQuery(Object.fromEntries(new URLSearchParams(qs || '')))
       if (h.startsWith('patient/')) {
         setPatientId(h.split('/')[1])
         setView('patient')
@@ -45,8 +47,8 @@ export default function App() {
             <path d="M5 17h5l2-5 3 9 3-7 2 3h7" fill="none" stroke="#0f172a" strokeWidth="2" strokeLinejoin="round" />
           </svg>
           <div>
-            <div className="brand-name">TwinPulse</div>
-            <div className="brand-tag">The twin lives the night first</div>
+            <div className="brand-name">NightTwin</div>
+            <div className="brand-tag">by Team TwinPulse · the twin lives the night first</div>
           </div>
         </div>
         <nav>
@@ -64,13 +66,13 @@ export default function App() {
       <main className={view === 'overview' ? 'wide' : ''}>
         {view === 'overview' && <Overview go={go} />}
         {view === 'board' && <Board onOpen={(id) => go(`patient/${id}`)} />}
-        {view === 'patient' && patientId && <PatientView key={patientId} id={patientId} onBack={() => go('board')} />}
+        {view === 'patient' && patientId && <PatientView key={patientId} id={patientId} query={query} onBack={() => go('board')} />}
         {view === 'sensors' && <SensorPriority onOpen={(id) => go(`patient/${id}`)} />}
         {view === 'evidence' && <Evidence />}
         {view === 'about' && <About />}
       </main>
       <footer className="footer">
-        TwinPulse · Happiest Health Digital Twin Challenge 2026 · Decision support for clinicians, not a medical device ·
+        NightTwin by Team TwinPulse · Newton School of Technology, Rishihood University · Happiest Health Digital Twin Challenge 2026 · Decision support for clinicians, not a medical device ·
         Models validated on open real-patient data (HUPA-UCM, T1D-UOM) · Apache-2.0
       </footer>
     </div>

@@ -145,12 +145,20 @@ function Guard({ guard, meta }) {
   )
 }
 
-export default function PatientView({ id, onBack }) {
+// Shareable demo states, e.g. #patient/TP-001?snack=15&shift=90&approve=1
+function planFromQuery(q) {
+  return {
+    snack_g: Number(q.snack || 0), dinner_rapid_pct: Number(q.dinner || 0), long_acting_pct: Number(q.long || 0),
+    long_acting_shift_min: Number(q.shift || 0), skip_play: q.noplay === '1',
+  }
+}
+
+export default function PatientView({ id, onBack, query = {} }) {
   const [p, setP] = useState(null)
-  const [plan, setPlan] = useState(NO_PLAN)
+  const [plan, setPlan] = useState(() => planFromQuery(query))
   const [result, setResult] = useState(null)
   const [busy, setBusy] = useState(false)
-  const [sent, setSent] = useState(false)
+  const [sent, setSent] = useState(query.approve === '1')
 
   useEffect(() => { getPatient(id).then(setP) }, [id])
   useEffect(() => {

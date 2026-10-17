@@ -34,7 +34,7 @@ export default function Overview({ go }) {
           <div className="eyebrow">Digital twin · Type 1 diabetes · India</div>
           <h1>Before a child sleeps, her twin lives the night first.</h1>
           <p>
-            TwinPulse is a physiology-based digital twin for children with type 1 diabetes. It rehearses tonight on a
+            NightTwin is a physiology-based digital twin for children with type 1 diabetes. It rehearses tonight on a
             virtual copy of the child, shows the doctor which nights are dangerous and what makes them safer, and guards
             the real night so a parent is woken <i>before</i> a low, not after.
           </p>

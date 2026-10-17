@@ -74,7 +74,7 @@ export default function Evidence() {
       <div className="card">
         <div className="card-title">2 · Glucose forecast error (RMSE, mg/dL; lower is better)</div>
         <table className="ev">
-          <thead><tr><th>Horizon</th><th>Assume no change</th><th>Extend the trend</th><th>TwinPulse</th><th>Clarke grid zones A+B</th></tr></thead>
+          <thead><tr><th>Horizon</th><th>Assume no change</th><th>Extend the trend</th><th>NightTwin</th><th>Clarke grid zones A+B</th></tr></thead>
           <tbody>
             {['30min', '60min', '120min'].map((h) => (
               <tr key={h}><td>{h.replace('min', ' min')}</td><td>{f1(fc[h].persistence.rmse)}</td><td>{f1(fc[h].linear_trend.rmse)}</td>
@@ -99,7 +99,7 @@ export default function Evidence() {
         </table>
         <p className="muted small">
           Night-to-night variation in the same child is large, so bedtime-only risk is close to chance on {n.n_nights} real nights.
-          That's why TwinPulse uses the bedtime rehearsal to <i>compare plans</i> (what changes the risk) rather than to promise a night is safe,
+          That's why NightTwin uses the bedtime rehearsal to <i>compare plans</i> (what changes the risk) rather than to promise a night is safe,
           and relies on the in-night guard for warnings. What does work without nightly CGM: a child's first week on a trial sensor ranks which
           children will have the most night lows later (Spearman 0.63, 29 real patients), so scarce sensors can go to those who need them most.
         </p>
