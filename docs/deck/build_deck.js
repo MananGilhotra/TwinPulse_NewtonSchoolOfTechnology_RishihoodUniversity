@@ -11,6 +11,7 @@ const M = JSON.parse(fs.readFileSync(path.join(ROOT, "reports", "metrics.json"))
 const X = JSON.parse(fs.readFileSync(path.join(ROOT, "reports", "metrics_extra.json")));
 const TEAM = process.env.TEAM || "Team TwinPulse";
 const PROJECT = "NightTwin";
+const MEMBERS = process.env.MEMBERS || "Manan Gilhotra (team leader) · Manas Saxena";
 const COLLEGE = process.env.COLLEGE || "Newton School of Technology, Rishihood University";
 const OUT = path.join(ROOT, "docs", "TwinPulse_Presentation.pptx");
 
@@ -104,7 +105,8 @@ let s = pres.addSlide({ masterName: "TITLE_DARK", sectionTitle: "Opening" });
 txt(s, "TEAM TWINPULSE · HAPPIEST HEALTH DIGITAL TWIN CHALLENGE 2026", { x: 0.7, y: 1.55, w: 9, h: 0.4, fontSize: 14, bold: true, color: C.accent2, charSpacing: 3 });
 s.addText("NightTwin: the twin lives the night first", { placeholder: "title" });
 s.addText("A physiology-based digital twin that rehearses tonight to prevent night-time hypoglycaemia in Indian children with type 1 diabetes", { placeholder: "body" });
-txt(s, [TEAM, COLLEGE].filter(Boolean).join(" · "), { x: 0.7, y: 6.2, w: 8, h: 0.4, fontSize: 16, color: C.background1 });
+txt(s, [TEAM, COLLEGE].filter(Boolean).join(" · "), { x: 0.7, y: 5.95, w: 9, h: 0.4, fontSize: 16, color: C.background1 });
+txt(s, MEMBERS, { x: 0.7, y: 6.4, w: 9, h: 0.4, fontSize: 14, color: C.accent5 });
 s.addShape(pres.shapes.OVAL, { x: 9.9, y: 1.7, w: 2.6, h: 2.6, fill: { color: C.accent2 }, line: { color: C.accent2 }, objectName: "moon" });
 s.addShape(pres.shapes.OVAL, { x: 10.6, y: 1.45, w: 2.4, h: 2.4, fill: { color: C.text1 }, line: { color: C.text1 }, objectName: "moon-shadow" });
 txt(s, "21:00 → 07:00\n500 nights rehearsed\nbefore one is lived", { x: 9.6, y: 4.7, w: 3.2, h: 1.3, fontSize: 16, color: C.accent5, align: "right" });
@@ -336,7 +338,7 @@ pres.addSection({ title: "Close" });
 s = pres.addSlide({ masterName: "TITLE_DARK", sectionTitle: "Close" });
 s.addText("Let the twin face the night first", { placeholder: "title" });
 s.addText("So a mother can sleep, and a child wakes up safe", { placeholder: "body" });
-txt(s, [TEAM, COLLEGE].filter(Boolean).join(" · "), { x: 0.7, y: 5.7, w: 8.5, h: 0.4, fontSize: 16, color: C.background1 });
+txt(s, [TEAM, COLLEGE].filter(Boolean).join(" · ") + "\n" + MEMBERS, { x: 0.7, y: 5.3, w: 8.5, h: 0.75, fontSize: 16, color: C.background1 });
 txt(s, "Live demo: manangilhotra.github.io/TwinPulse_NewtonSchoolOfTechnology_RishihoodUniversity", { x: 0.7, y: 6.15, w: 8.5, h: 0.4, fontSize: 14, color: C.accent5 });
 s.addShape(pres.shapes.OVAL, { x: 9.9, y: 1.7, w: 2.6, h: 2.6, fill: { color: C.accent2 }, line: { color: C.accent2 }, objectName: "moon-close" });
 s.addShape(pres.shapes.OVAL, { x: 10.6, y: 1.45, w: 2.4, h: 2.4, fill: { color: C.text1 }, line: { color: C.text1 }, objectName: "moon-close-shadow" });

@@ -10,7 +10,7 @@ A physiology-based digital twin that rehearses tonight to prevent night-time hyp
 | | |
 |---|---|
 | **Team name** | TwinPulse |
-| **Team members** | Manan Gilhotra (team leader) · _add other members_ |
+| **Team members** | Manan Gilhotra (team leader) · Manas Saxena |
 | **College / incubator** | Newton School of Technology, Rishihood University |
 | **Project title** | NightTwin: a physiology-based digital twin that rehearses tonight to prevent night-time hypoglycaemia in Indian children with type 1 diabetes |
 | **Condition** | Type 1 diabetes (insulin-treated diabetes); adverse event: night-time hypoglycaemia |
