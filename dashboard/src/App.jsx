@@ -5,13 +5,15 @@ import PatientView from './components/PatientView.jsx'
 import SensorPriority from './components/SensorPriority.jsx'
 import Evidence from './components/Evidence.jsx'
 import About from './components/About.jsx'
+import Logo from './components/Logo.jsx'
+import Icon from './components/Icon.jsx'
 
 const NAV = [
-  { key: 'overview', label: 'Overview' },
-  { key: 'board', label: 'Tonight Board' },
-  { key: 'sensors', label: 'Sensor Priority' },
-  { key: 'evidence', label: 'Evidence' },
-  { key: 'about', label: 'Privacy & India' },
+  { key: 'overview', label: 'Overview', icon: 'home' },
+  { key: 'board', label: 'Tonight Board', icon: 'moon' },
+  { key: 'sensors', label: 'Sensor Priority', icon: 'sensor' },
+  { key: 'evidence', label: 'Evidence', icon: 'chart' },
+  { key: 'about', label: 'Privacy & India', icon: 'shield' },
 ]
 
 export default function App() {
@@ -40,27 +42,27 @@ export default function App() {
   return (
     <div className="app">
       <header className="topbar">
-        <div className="brand" onClick={() => go('overview')}>
-          <svg className="logo" viewBox="0 0 32 32" aria-hidden="true">
-            <circle cx="16" cy="16" r="14" fill="none" stroke="#a5b4fc" strokeWidth="2.5" />
-            <path d="M16 2 A14 14 0 0 1 16 30 Z" fill="#a5b4fc" />
-            <path d="M5 17h5l2-5 3 9 3-7 2 3h7" fill="none" stroke="#0f172a" strokeWidth="2" strokeLinejoin="round" />
-          </svg>
-          <div>
-            <div className="brand-name">NightTwin</div>
-            <div className="brand-tag">by Team TwinPulse · the twin lives the night first</div>
+        <div className="topbar-inner">
+          <a className="brand" href="#overview" aria-label="NightTwin home">
+            <Logo size={38} />
+            <span className="wordmark">
+              <span className="wm-name">Night<b>Twin</b></span>
+              <span className="wm-by">by Team TwinPulse</span>
+            </span>
+          </a>
+          <nav className="nav" aria-label="Main">
+            {NAV.map((n) => (
+              <button key={n.key} className={active === n.key ? 'active' : ''} onClick={() => go(n.key)}
+                aria-current={active === n.key ? 'page' : undefined}>
+                <Icon name={n.icon} size={15} />
+                <span>{n.label}</span>
+              </button>
+            ))}
+          </nav>
+          <div className="top-right">
+            <span className="pill-night"><Icon name="moon" size={13} /> Tonight · 17 Oct · 21:00</span>
+            <span className="pill-demo" title="All patients shown are synthetic">Synthetic demo</span>
           </div>
-        </div>
-        <nav>
-          {NAV.map((n) => (
-            <button key={n.key} className={active === n.key ? 'active' : ''} onClick={() => go(n.key)}>
-              {n.label}
-            </button>
-          ))}
-        </nav>
-        <div className="clinic">
-          <div className="clinic-name">Paediatric Diabetes Clinic · District Hospital</div>
-          <div className="synthetic-tag">Demo · all patients are synthetic</div>
         </div>
       </header>
       <main className={view === 'overview' ? 'wide' : ''}>
@@ -72,8 +74,10 @@ export default function App() {
         {view === 'about' && <About />}
       </main>
       <footer className="footer">
-        NightTwin by Team TwinPulse · Newton School of Technology, Rishihood University · Happiest Health Digital Twin Challenge 2026 · Decision support for clinicians, not a medical device ·
-        Models validated on open real-patient data (HUPA-UCM, T1D-UOM) · Apache-2.0
+        <div className="footer-inner">
+          <div className="footer-brand"><Logo size={22} /> <b>NightTwin</b> by Team TwinPulse · Newton School of Technology, Rishihood University</div>
+          <div className="muted">Happiest Health Digital Twin Challenge 2026 · Decision support for clinicians, not a medical device · Validated on open real-patient data (HUPA-UCM, T1D-UOM) · Apache-2.0</div>
+        </div>
       </footer>
     </div>
   )

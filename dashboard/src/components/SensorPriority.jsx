@@ -1,3 +1,4 @@
+import Icon from './Icon.jsx'
 import React, { useEffect, useState } from 'react'
 import { getBoard, getValidation, pct } from '../api.js'
 
@@ -13,6 +14,7 @@ export default function SensorPriority({ onOpen }) {
     <div>
       <div className="page-head">
         <div>
+          <div className="eyebrow-dark">For state programmes with limited CGMs</div>
           <h1>Sensor Priority</h1>
           <p className="muted">
             A state programme has a few CGMs to give out. Each finger-prick child wore one 14-day trial sensor; the twin ranks

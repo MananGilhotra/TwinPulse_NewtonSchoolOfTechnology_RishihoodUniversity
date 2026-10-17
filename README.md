@@ -1,3 +1,5 @@
+<p align="center"><img src="docs/brand/nighttwin_logo.png" width="96" alt="NightTwin logo"></p>
+
 # NightTwin: the twin lives the night first
 
 **By Team TwinPulse · Newton School of Technology, Rishihood University**

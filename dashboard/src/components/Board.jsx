@@ -1,3 +1,4 @@
+import Icon from './Icon.jsx'
 import React, { useEffect, useState } from 'react'
 import { getBoard, pct, riskLevel, REGIMEN } from '../api.js'
 
@@ -18,6 +19,7 @@ export default function Board({ onOpen }) {
     <div>
       <div className="page-head">
         <div>
+          <div className="eyebrow-dark">Paediatric Diabetes Clinic · District Hospital</div>
           <h1>Tonight Board</h1>
           <p className="muted">
             9:00 PM, {new Date(data.tonight).toDateString()}. Each child's twin has lived tonight 500 times.
@@ -25,9 +27,9 @@ export default function Board({ onOpen }) {
           </p>
         </div>
         <div className="kpis">
-          <div className="kpi danger"><span>{high.length}</span>high-risk nights</div>
-          <div className="kpi warn"><span>{med.length}</span>to watch</div>
-          <div className="kpi"><span>{data.patients.length}</span>children enrolled</div>
+          <div className="kpi danger"><Icon name="alert" size={18} /><span>{high.length}</span>high-risk nights</div>
+          <div className="kpi warn"><Icon name="moon" size={18} /><span>{med.length}</span>to watch</div>
+          <div className="kpi"><Icon name="users" size={18} /><span>{data.patients.length}</span>children enrolled</div>
         </div>
       </div>
       <div className="filters">
@@ -66,7 +68,7 @@ export default function Board({ onOpen }) {
                 <td><span className={`badge ${p.mode}`}>{p.mode === 'cgm' ? 'CGM' : 'Finger-prick'}</span></td>
                 <td className="small">{REGIMEN[p.regimen]}</td>
                 <td>{pct(p.night_tbr_14d, 1)} of night time</td>
-                <td>{p.p_low >= 0.15 ? <button className="btn small-inline danger">Call family</button> : <button className="link">Open twin →</button>}</td>
+                <td>{p.p_low >= 0.15 ? <button className="btn small-inline danger"><Icon name="phone" size={13} /> Call family</button> : <button className="link">Open twin →</button>}</td>
               </tr>
             ))}
           </tbody>

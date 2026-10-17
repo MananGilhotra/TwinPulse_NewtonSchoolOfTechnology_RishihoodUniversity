@@ -14,6 +14,7 @@ const PROJECT = "NightTwin";
 const MEMBERS = process.env.MEMBERS || "Manan Gilhotra (team leader) · Manas Saxena";
 const COLLEGE = process.env.COLLEGE || "Newton School of Technology, Rishihood University";
 const OUT = path.join(ROOT, "docs", "TwinPulse_Presentation.pptx");
+const LOGO = path.join(ROOT, "docs", "brand", "nighttwin_logo.png");
 
 const THEME = {
   name: "TwinPulse Night",
@@ -50,7 +51,8 @@ pres.defineSlideMaster({
   margin: [0.5, 0.6, 0.6, 0.6],
   objects: [
     { placeholder: { options: { name: "title", type: "title", x: 0.6, y: 0.35, w: 12.1, h: 0.85, fontSize: 32, bold: true, color: C.text1, valign: "middle", align: "left", fontFace: THEME.headFontFace }, text: "" } },
-    { text: { text: "NightTwin by Team TwinPulse · Newton School of Technology, Rishihood University", options: { x: 0.6, y: 7.05, w: 8, h: 0.3, fontSize: 10, color: C.text2 } } },
+    { image: { x: 0.6, y: 7.02, w: 0.3, h: 0.3, path: LOGO } },
+    { text: { text: "NightTwin by Team TwinPulse · Newton School of Technology, Rishihood University", options: { x: 0.98, y: 7.05, w: 8, h: 0.3, fontSize: 10, color: C.text2 } } },
   ],
   slideNumber: { x: 12.2, y: 7.05, w: 0.6, h: 0.3, fontSize: 10, color: C.text2, align: "right" },
 });
@@ -59,7 +61,8 @@ pres.defineSlideMaster({
   background: { color: HEX.dk1 },
   objects: [
     { placeholder: { options: { name: "title", type: "title", x: 0.6, y: 0.35, w: 12.1, h: 0.85, fontSize: 32, bold: true, color: C.background1, valign: "middle", align: "left", fontFace: THEME.headFontFace }, text: "" } },
-    { text: { text: "NightTwin by Team TwinPulse · Newton School of Technology, Rishihood University", options: { x: 0.6, y: 7.05, w: 8, h: 0.3, fontSize: 10, color: C.accent5 } } },
+    { image: { x: 0.6, y: 7.02, w: 0.3, h: 0.3, path: LOGO } },
+    { text: { text: "NightTwin by Team TwinPulse · Newton School of Technology, Rishihood University", options: { x: 0.98, y: 7.05, w: 8, h: 0.3, fontSize: 10, color: C.accent5 } } },
   ],
   slideNumber: { x: 12.2, y: 7.05, w: 0.6, h: 0.3, fontSize: 10, color: C.accent5, align: "right" },
 });
@@ -102,6 +105,7 @@ const ana = { base: 0.58, plan: 0.14 };
 // ---------- 1. title ----------
 pres.addSection({ title: "Opening" });
 let s = pres.addSlide({ masterName: "TITLE_DARK", sectionTitle: "Opening" });
+s.addImage({ path: LOGO, x: 0.7, y: 0.55, w: 0.85, h: 0.85, altText: "NightTwin logo", objectName: "logo-title" });
 txt(s, "TEAM TWINPULSE · HAPPIEST HEALTH DIGITAL TWIN CHALLENGE 2026", { x: 0.7, y: 1.55, w: 9, h: 0.4, fontSize: 14, bold: true, color: C.accent2, charSpacing: 3 });
 s.addText("NightTwin: the twin lives the night first", { placeholder: "title" });
 s.addText("A physiology-based digital twin that rehearses tonight to prevent night-time hypoglycaemia in Indian children with type 1 diabetes", { placeholder: "body" });
@@ -280,7 +284,7 @@ s.addNotes("The dashboard is built for a busy paediatric diabetes clinic. At 9 P
 // ---------- 14. family + India ----------
 s = pres.addSlide({ masterName: "CONTENT", sectionTitle: "Product" });
 s.addText("Built for Indian families and clinics", { placeholder: "title" });
-img(s, SHOT("patient_arjun_crop.png"), 0.6, 1.35, 7.2, 1350 / 960, "Night guard replay with a Malayalam voice alert");
+img(s, SHOT("patient_arjun_crop.png"), 0.6, 1.35, 7.2, 1350 / 1030, "Night guard replay with a Malayalam voice alert");
 [["Language", "Alerts in Kannada, Hindi, Malayalam… by voice call that works on feature phones"],
  ["Insulin reality", "Models human NPH/Regular and premixed insulin, not only analogues"],
  ["Routines", "Late dinners, evening cricket, school tiffin"],
@@ -337,6 +341,7 @@ s.addNotes("We are open about our limits: the models were trained on adults abro
 pres.addSection({ title: "Close" });
 s = pres.addSlide({ masterName: "TITLE_DARK", sectionTitle: "Close" });
 s.addText("Let the twin face the night first", { placeholder: "title" });
+s.addImage({ path: LOGO, x: 0.7, y: 0.9, w: 0.85, h: 0.85, altText: "NightTwin logo", objectName: "logo-close" });
 s.addText("So a mother can sleep, and a child wakes up safe", { placeholder: "body" });
 txt(s, [TEAM, COLLEGE].filter(Boolean).join(" · ") + "\n" + MEMBERS, { x: 0.7, y: 5.3, w: 8.5, h: 0.75, fontSize: 16, color: C.background1 });
 txt(s, "Live demo: manangilhotra.github.io/TwinPulse_NewtonSchoolOfTechnology_RishihoodUniversity", { x: 0.7, y: 6.15, w: 8.5, h: 0.4, fontSize: 14, color: C.accent5 });

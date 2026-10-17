@@ -1,3 +1,4 @@
+import Icon from './Icon.jsx'
 import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { getPatient, postWhatIf, pct, riskLevel, REGIMEN } from '../api.js'
 import { FanChart, GuardChart, HourBars, Timeline } from './charts.jsx'
@@ -9,7 +10,9 @@ function fhirValue(bundle, id) {
   const e = bundle.entry.find((x) => x.resource.id?.endsWith(id))
   if (!e) return null
   const r = e.resource
-  return r.valueQuantity ? `${r.valueQuantity.value} ${r.valueQuantity.unit}` : r.valueString
+  if (!r.valueQuantity) return r.valueString
+  const { value, unit } = r.valueQuantity
+  return `${value} ${value === 1 && unit.endsWith('s') ? unit.slice(0, -1) : unit}`
 }
 
 function EhrCard({ meta, fhir }) {
@@ -27,7 +30,7 @@ function EhrCard({ meta, fhir }) {
   ]
   return (
     <div className="card">
-      <div className="card-title">Health record <span className="muted small">FHIR R4 · ABDM-ready</span></div>
+      <div className="card-title"><Icon name="file" /> Health record <span className="muted small">FHIR R4 · ABDM-ready</span></div>
       <div className="ehr">
         {rows.map(([k, v, flag]) => (
           <div key={k} className="ehr-row">
@@ -45,7 +48,7 @@ function EhrCard({ meta, fhir }) {
 function Why({ items, base }) {
   return (
     <div className="card">
-      <div className="card-title">Why tonight is risky</div>
+      <div className="card-title"><Icon name="alert" /> Why tonight is risky</div>
       <p className="muted small">The twin removes one thing at a time and re-lives the night. The bigger the bar, the more that factor drives tonight's risk.</p>
       {items.map((x) => (
         <div key={x.factor} className="why-row">
@@ -67,7 +70,7 @@ function Rehearse({ meta, plan, setPlan, result, busy }) {
   const set = (k) => (e) => setPlan({ ...plan, [k]: e.target.type === 'checkbox' ? e.target.checked : Number(e.target.value) })
   return (
     <div className="card rehearse">
-      <div className="card-title">Rehearse a plan on the twin</div>
+      <div className="card-title"><Icon name="spark" /> Rehearse a plan on the twin</div>
       <div className="presets">
         <span className="muted small">Quick plans:</span>
         <button className="chip" onClick={() => setPlan({ ...plan, snack_g: 15 })}>Bedtime snack</button>
@@ -122,7 +125,7 @@ function Guard({ guard, meta }) {
   if (!guard.available) {
     return (
       <div className="card">
-        <div className="card-title">Night guard (real time)</div>
+        <div className="card-title"><Icon name="pulse" /> Night guard (real time)</div>
         <p className="muted">{guard.reason} The bedtime rehearsal above still applies. If the twin's risk is high, the family gets a reminder to check at the predicted time.</p>
       </div>
     )
@@ -132,8 +135,8 @@ function Guard({ guard, meta }) {
   const alerted = alertIdx >= 0 && i >= alertIdx
   return (
     <div className="card">
-      <div className="card-title">Night guard: replay of tonight
-        <button className="btn small" onClick={play}>▶ Replay night</button>
+      <div className="card-title"><Icon name="pulse" /> Night guard: replay of tonight
+        <button className="btn small" onClick={play}><Icon name="play" size={12} /> Replay night</button>
       </div>
       <GuardChart series={guard.series} upTo={i} threshold={guard.threshold} alertAt={guard.first_alert} onsetAt={guard.low_onset} />
       <div className="guard-foot">
@@ -195,21 +198,21 @@ export default function PatientView({ id, onBack, query = {} }) {
       <div className="grid">
         <div className="col-main">
           <div className="card">
-            <div className="card-title">Tonight, rehearsed 500 times <span className="muted small">physiology twin · fitted on {meta.name}'s last 13 nights</span></div>
+            <div className="card-title"><Icon name="moon" /> Tonight, rehearsed 500 times <span className="muted small">physiology twin · fitted on {meta.name}'s last 13 nights</span></div>
             <FanChart band={tonight.band} alt={result?.band} />
             <div className="legend"><span className="sw band" /> spread of simulated nights {result && <><span className="sw alt" /> with the plan</>}</div>
           </div>
           <Rehearse meta={meta} plan={plan} setPlan={setPlan} result={result} busy={busy} />
           {result && (
             <div className="card approve">
-              <button className="btn primary" onClick={() => setSent(true)}>Approve plan and send to family</button>
+              <button className="btn primary" onClick={() => setSent(true)}><Icon name="check" size={15} /> Approve plan and send to family</button>
               <span className="muted small">Only the doctor changes treatment. The family sees the approved action in {meta.language}.</span>
               {sent && <FamilyMessage meta={meta} kind="plan" plan={plan} />}
             </div>
           )}
           <Guard guard={p.guard} meta={meta} />
           <div className="card">
-            <div className="card-title">Last 36 hours <span className="muted small">{meta.mode === 'cgm' ? 'CGM' : 'finger-prick readings only'} · meals ▲ · insulin ◆ · steps</span></div>
+            <div className="card-title"><Icon name="chart" /> Last 36 hours <span className="muted small">{meta.mode === 'cgm' ? 'CGM' : 'finger-prick readings only'} · meals ▲ · insulin ◆ · steps</span></div>
             <Timeline series={p.series} mode={meta.mode} />
           </div>
         </div>
@@ -217,7 +220,7 @@ export default function PatientView({ id, onBack, query = {} }) {
           <Why items={tonight.explain} base={r.p_low} />
           <EhrCard meta={meta} fhir={p.fhir} />
           <div className="card">
-            <div className="card-title">Last 14 days <span className="muted small">{wk.source}</span></div>
+            <div className="card-title"><Icon name="chart" /> Last 14 days <span className="muted small">{wk.source}</span></div>
             <div className="tir">
               <div className="tir-bar">
                 <div className="tbr" style={{ width: pct(wk.tbr70) }} />
@@ -235,7 +238,7 @@ export default function PatientView({ id, onBack, query = {} }) {
             <HourBars rows={wk.lows_by_hour} />
           </div>
           <div className="card">
-            <div className="card-title">Twin parameters</div>
+            <div className="card-title"><Icon name="pulse" /> Twin parameters</div>
             <div className="ehr">
               <div className="ehr-row"><span className="muted">Insulin sensitivity</span><span>{tonight.twin.si.toFixed(3)}</span></div>
               <div className="ehr-row"><span className="muted">Glucose settle point</span><span>{Math.round(tonight.twin.gb)} mg/dL</span></div>

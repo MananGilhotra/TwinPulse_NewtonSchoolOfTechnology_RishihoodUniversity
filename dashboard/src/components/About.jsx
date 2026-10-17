@@ -1,8 +1,10 @@
+import Icon from './Icon.jsx'
 import React from 'react'
 
 export default function About() {
   return (
     <div className="about">
+      <div className="eyebrow-dark">Built to be trusted</div>
       <h1>Privacy, safety and India</h1>
       <div className="grid2">
         <div className="card">

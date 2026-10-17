@@ -1,3 +1,4 @@
+import Icon from './Icon.jsx'
 import React, { useEffect, useState } from 'react'
 import { getValidation } from '../api.js'
 
@@ -47,6 +48,7 @@ export default function Evidence() {
     <div>
       <div className="page-head">
         <div>
+          <div className="eyebrow-dark">Real patients · patient-held-out + external test</div>
           <h1>Evidence</h1>
           <p className="muted">
             Every number here comes from <b>real people with type 1 diabetes</b>: HUPA-UCM (25 people, Spain, FreeStyle Libre 2 + Fitbit)
