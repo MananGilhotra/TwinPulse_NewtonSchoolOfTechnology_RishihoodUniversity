@@ -4,6 +4,38 @@ import { getValidation } from '../api.js'
 const f2 = (x) => (x == null ? '–' : x.toFixed(2))
 const f1 = (x) => (x == null ? '–' : x.toFixed(1))
 
+function GuardEvents({ ge }) {
+  const [thr, setThr] = useState('0.2')
+  const rows = [['Unseen patients (Spain, 5 groups)', ge.unseen_patients[thr]], ['External test (UK, other devices)', ge.external[thr]]]
+  return (
+    <div className="card highlight">
+      <div className="card-title">Night guard, counted the way a parent would count it
+        <span className="seg">
+          {['0.15', '0.2', '0.3'].map((t) => (
+            <button key={t} className={thr === t ? 'on' : ''} onClick={() => setThr(t)}>
+              {t === '0.15' ? 'More sensitive' : t === '0.2' ? 'Balanced (default)' : 'Fewer alarms'}
+            </button>
+          ))}
+        </span>
+      </div>
+      <div className="event-grid">
+        {rows.map(([label, r]) => (
+          <div key={label} className="event-col">
+            <div className="muted">{label} · {r.night_lows} night-time lows over {r.nights} nights</div>
+            <div className="event-kpis">
+              <div><span>{Math.round(r.caught_15min_ahead * 100)}%</span>of lows warned ≥15 min ahead</div>
+              <div><span>{Math.round(r.median_warning_min)} min</span>median warning</div>
+              <div><span>{r.false_alarms_per_night.toFixed(2)}</span>false alarms per night</div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <p className="muted small">A night-time low = glucose below 70 mg/dL for 15+ minutes starting between 22:00 and 06:00, after at least 30 minutes in range.
+        A false alarm = an alert episode at night with no low in the next 2 hours. Risk is smoothed over 15 minutes.</p>
+    </div>
+  )
+}
+
 export default function Evidence() {
   const [v, setV] = useState(null)
   useEffect(() => { getValidation().then(setV) }, [])
@@ -23,6 +55,8 @@ export default function Evidence() {
           </p>
         </div>
       </div>
+
+      {v.extra && <GuardEvents ge={v.extra.guard_events} />}
 
       <div className="card">
         <div className="card-title">1 · Night guard: warning before a low (CGM users)</div>
@@ -58,6 +92,9 @@ export default function Evidence() {
             <tr><td>Rule: lower bedtime glucose = higher risk</td><td>{f2(n.cv.rule_bedtime_bg.auroc)}</td><td>{f2(n.external.rule_bedtime_bg.auroc)}</td></tr>
             <tr><td>ML: CGM + insulin + meals + wearables + history</td><td>{f2(n.cv.full_twin.auroc)}</td><td>{f2(n.external.full_twin.auroc)}</td></tr>
             <tr><td>ML: finger-pricks + band only (no CGM)</td><td>{f2(n.cv.fingerstick_band.auroc)}</td><td>{f2(n.external.fingerstick_band.auroc)}</td></tr>
+            {v.extra?.twin_bedtime?.['HUPA-UCM'] && (
+              <tr><td>Physiology twin, refitted on each patient's previous nights</td><td>{f2(v.extra.twin_bedtime['HUPA-UCM'].twin_auroc)}</td><td>{f2(v.extra.twin_bedtime['T1D-UOM']?.twin_auroc)}</td></tr>
+            )}
           </tbody>
         </table>
         <p className="muted small">

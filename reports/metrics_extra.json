@@ -1,0 +1,286 @@
+{
+  "guard_events": {
+    "unseen_patients": {
+      "0.15": {
+        "night_lows": 315,
+        "caught_any": 0.9936507936507937,
+        "caught_15min_ahead": 0.9809523809523809,
+        "median_warning_min": 80.0,
+        "false_alarms_per_night": 0.6514181152790485,
+        "alerts_per_night": 0.9469350411710887,
+        "nights": 1093
+      },
+      "0.2": {
+        "night_lows": 315,
+        "caught_any": 0.9873015873015873,
+        "caught_15min_ahead": 0.9650793650793651,
+        "median_warning_min": 65.0,
+        "false_alarms_per_night": 0.5516925892040256,
+        "alerts_per_night": 0.848124428179323,
+        "nights": 1093
+      },
+      "0.3": {
+        "night_lows": 315,
+        "caught_any": 0.9365079365079365,
+        "caught_15min_ahead": 0.873015873015873,
+        "median_warning_min": 45.0,
+        "false_alarms_per_night": 0.37236962488563585,
+        "alerts_per_night": 0.6779505946935042,
+        "nights": 1093
+      }
+    },
+    "external": {
+      "0.15": {
+        "night_lows": 193,
+        "caught_any": 0.7875647668393783,
+        "caught_15min_ahead": 0.772020725388601,
+        "median_warning_min": 75.0,
+        "false_alarms_per_night": 0.583077866339669,
+        "alerts_per_night": 0.7228694052728387,
+        "nights": 1631
+      },
+      "0.2": {
+        "night_lows": 193,
+        "caught_any": 0.7150259067357513,
+        "caught_15min_ahead": 0.6839378238341969,
+        "median_warning_min": 62.5,
+        "false_alarms_per_night": 0.48068669527896996,
+        "alerts_per_night": 0.6112814224402208,
+        "nights": 1631
+      },
+      "0.3": {
+        "night_lows": 193,
+        "caught_any": 0.5854922279792746,
+        "caught_15min_ahead": 0.5440414507772021,
+        "median_warning_min": 45.0,
+        "false_alarms_per_night": 0.3507050889025138,
+        "alerts_per_night": 0.4555487431023912,
+        "nights": 1631
+      }
+    }
+  },
+  "sensor_ranking": {
+    "patients": 29,
+    "spearman_week1_tbr_vs_later": 0.6290820420325838,
+    "spearman_week1_nightlows_vs_later": 0.6087015166929229,
+    "top_third_later_rate": 0.42443446661412065,
+    "bottom_third_later_rate": 0.09757152853231241,
+    "table": [
+      {
+        "patient": "HUPA0001",
+        "week1_tbr": 0.0149,
+        "week1_night_lows": 0.0,
+        "later_night_low_rate": 0.3333,
+        "later_nights": 6
+      },
+      {
+        "patient": "HUPA0002",
+        "week1_tbr": 0.2381,
+        "week1_night_lows": 0.2857,
+        "later_night_low_rate": 0.6667,
+        "later_nights": 3
+      },
+      {
+        "patient": "HUPA0003",
+        "week1_tbr": 0.0357,
+        "week1_night_lows": 0.5714,
+        "later_night_low_rate": 0.4,
+        "later_nights": 5
+      },
+      {
+        "patient": "HUPA0004",
+        "week1_tbr": 0.1116,
+        "week1_night_lows": 0.4286,
+        "later_night_low_rate": 0.6667,
+        "later_nights": 3
+      },
+      {
+        "patient": "HUPA0005",
+        "week1_tbr": 0.0506,
+        "week1_night_lows": 0.2857,
+        "later_night_low_rate": 0.0,
+        "later_nights": 5
+      },
+      {
+        "patient": "HUPA0007",
+        "week1_tbr": 0.0724,
+        "week1_night_lows": 0.4286,
+        "later_night_low_rate": 0.4,
+        "later_nights": 5
+      },
+      {
+        "patient": "HUPA0009",
+        "week1_tbr": 0.0,
+        "week1_night_lows": 0.0,
+        "later_night_low_rate": 0.0,
+        "later_nights": 5
+      },
+      {
+        "patient": "HUPA0011",
+        "week1_tbr": 0.0258,
+        "week1_night_lows": 0.1429,
+        "later_night_low_rate": 0.0,
+        "later_nights": 5
+      },
+      {
+        "patient": "HUPA0014",
+        "week1_tbr": 0.0248,
+        "week1_night_lows": 0.1429,
+        "later_night_low_rate": 0.4,
+        "later_nights": 5
+      },
+      {
+        "patient": "HUPA0015",
+        "week1_tbr": 0.0387,
+        "week1_night_lows": 0.0,
+        "later_night_low_rate": 0.2,
+        "later_nights": 5
+      },
+      {
+        "patient": "HUPA0016",
+        "week1_tbr": 0.1483,
+        "week1_night_lows": 0.4286,
+        "later_night_low_rate": 0.4,
+        "later_nights": 5
+      },
+      {
+        "patient": "HUPA0017",
+        "week1_tbr": 0.0293,
+        "week1_night_lows": 0.0,
+        "later_night_low_rate": 0.0,
+        "later_nights": 4
+      },
+      {
+        "patient": "HUPA0018",
+        "week1_tbr": 0.0992,
+        "week1_night_lows": 0.2857,
+        "later_night_low_rate": 0.6,
+        "later_nights": 5
+      },
+      {
+        "patient": "HUPA0019",
+        "week1_tbr": 0.0248,
+        "week1_night_lows": 0.1429,
+        "later_night_low_rate": 0.2,
+        "later_nights": 5
+      },
+      {
+        "patient": "HUPA0022",
+        "week1_tbr": 0.1721,
+        "week1_night_lows": 0.5714,
+        "later_night_low_rate": 0.3333,
+        "later_nights": 6
+      },
+      {
+        "patient": "HUPA0023",
+        "week1_tbr": 0.053,
+        "week1_night_lows": 0.2857,
+        "later_night_low_rate": 0.1667,
+        "later_nights": 6
+      },
+      {
+        "patient": "HUPA0025",
+        "week1_tbr": 0.1409,
+        "week1_night_lows": 0.4286,
+        "later_night_low_rate": 0.3333,
+        "later_nights": 6
+      },
+      {
+        "patient": "HUPA0026",
+        "week1_tbr": 0.1701,
+        "week1_night_lows": 0.5714,
+        "later_night_low_rate": 0.2256,
+        "later_nights": 133
+      },
+      {
+        "patient": "HUPA0027",
+        "week1_tbr": 0.1047,
+        "week1_night_lows": 0.4286,
+        "later_night_low_rate": 0.1943,
+        "later_nights": 566
+      },
+      {
+        "patient": "HUPA0028",
+        "week1_tbr": 0.0312,
+        "week1_night_lows": 0.0,
+        "later_night_low_rate": 0.1341,
+        "later_nights": 82
+      },
+      {
+        "patient": "UOM2301",
+        "week1_tbr": 0.002,
+        "week1_night_lows": 0.0,
+        "later_night_low_rate": 0.0426,
+        "later_nights": 94
+      },
+      {
+        "patient": "UOM2303",
+        "week1_tbr": 0.002,
+        "week1_night_lows": 0.0,
+        "later_night_low_rate": 0.0244,
+        "later_nights": 41
+      },
+      {
+        "patient": "UOM2304",
+        "week1_tbr": 0.0,
+        "week1_night_lows": 0.0,
+        "later_night_low_rate": 0.0303,
+        "later_nights": 66
+      },
+      {
+        "patient": "UOM2307",
+        "week1_tbr": 0.0,
+        "week1_night_lows": 0.0,
+        "later_night_low_rate": 0.0455,
+        "later_nights": 22
+      },
+      {
+        "patient": "UOM2308",
+        "week1_tbr": 0.0218,
+        "week1_night_lows": 0.1429,
+        "later_night_low_rate": 0.3133,
+        "later_nights": 83
+      },
+      {
+        "patient": "UOM2309",
+        "week1_tbr": 0.0233,
+        "week1_night_lows": 0.2857,
+        "later_night_low_rate": 0.1091,
+        "later_nights": 55
+      },
+      {
+        "patient": "UOM2310",
+        "week1_tbr": 0.0161,
+        "week1_night_lows": 0.0,
+        "later_night_low_rate": 0.0494,
+        "later_nights": 162
+      },
+      {
+        "patient": "UOM2313",
+        "week1_tbr": 0.0378,
+        "week1_night_lows": 0.0,
+        "later_night_low_rate": 0.186,
+        "later_nights": 86
+      },
+      {
+        "patient": "UOM2320",
+        "week1_tbr": 0.0131,
+        "week1_night_lows": 0.0,
+        "later_night_low_rate": 0.0395,
+        "later_nights": 76
+      }
+    ]
+  },
+  "twin_bedtime": {
+    "HUPA-UCM": {
+      "nights": 921,
+      "twin_auroc": 0.5590802879451975,
+      "bedtime_bg_rule_auroc": 0.6014012655655859
+    },
+    "T1D-UOM": {
+      "nights": 703,
+      "twin_auroc": 0.5513075481186851,
+      "bedtime_bg_rule_auroc": 0.45813331504594706
+    }
+  }
+}

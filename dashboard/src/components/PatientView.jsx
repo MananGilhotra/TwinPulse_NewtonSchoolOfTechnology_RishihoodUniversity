@@ -68,6 +68,13 @@ function Rehearse({ meta, plan, setPlan, result, busy }) {
   return (
     <div className="card rehearse">
       <div className="card-title">Rehearse a plan on the twin</div>
+      <div className="presets">
+        <span className="muted small">Quick plans:</span>
+        <button className="chip" onClick={() => setPlan({ ...plan, snack_g: 15 })}>Bedtime snack</button>
+        {nph && <button className="chip" onClick={() => setPlan({ ...plan, snack_g: 15, long_acting_shift_min: 90 })}>Snack + NPH at bedtime</button>}
+        <button className="chip" onClick={() => setPlan({ ...plan, dinner_rapid_pct: -20 })}>Sports day: dinner dose −20%</button>
+        <button className="chip" onClick={() => setPlan({ snack_g: 0, dinner_rapid_pct: 0, long_acting_pct: 0, long_acting_shift_min: 0, skip_play: false })}>Reset</button>
+      </div>
       <div className="controls">
         <label>Bedtime snack (22:30)
           <select value={plan.snack_g} onChange={set('snack_g')}>
@@ -164,8 +171,12 @@ export default function PatientView({ id, onBack }) {
       <button className="link back" onClick={onBack}>← Tonight Board</button>
       <div className="patient-head">
         <div>
-          <h1>{meta.name}, {meta.age} <span className="synthetic">synthetic</span></h1>
+          <div className="who big-who"><span className={`avatar lg ${riskLevel(r.p_low)}`}>{meta.name[0]}</span>
+          <div><h1>{meta.name}, {meta.age} <span className="synthetic">synthetic</span></h1>
           <div className="muted">{meta.town} · {meta.language} · Parent: {meta.parent} · {REGIMEN[meta.regimen]} · {meta.insulin_source}</div>
+          <div className="tags"><span className={`badge ${meta.mode}`}>{meta.mode === 'cgm' ? 'CGM' : 'Finger-prick'}</span>
+            {meta.hypo_unaware && <span className="badge warnb">Impaired hypo awareness</span>}
+            <span className="badge">{meta.phone}</span></div></div></div>
         </div>
         <div className={`headline ${riskLevel(r.p_low)}`}>
           <div className="big">{pct(r.p_low)}</div>

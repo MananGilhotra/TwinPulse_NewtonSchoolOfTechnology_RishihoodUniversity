@@ -1,0 +1,1 @@
+{ "name": "twinpulse-deck", "private": true, "scripts": { "build": "node build_deck.js" }, "dependencies": { "pptxgenjs": "^3.12.0" } }

@@ -1,0 +1,48 @@
+# TwinPulse: 22-minute video script
+
+The submission needs a video of at least 20 minutes. This script runs about 22. Record your screen with your voices (QuickTime: File → New Screen Recording, or OBS), then upload to YouTube as **Unlisted** and paste the link into the README.
+
+**Before recording**
+
+1. Run `./run.sh` and open http://localhost:8000 in a full-screen browser window at 1440 px or wider.
+2. Open `docs/TwinPulse_Presentation.pdf` (or the .pptx) in presentation mode. Every slide has speaker notes you can read from.
+3. Split the speaking between team members. Mark who says what in the right-hand column.
+
+| Time | Screen | What to say (summary; slide notes have full lines) | Speaker |
+|---|---|---|---|
+| 0:00–1:30 | Slide 1 → Overview page hero | Introduce the team. Tagline: "Before a child sleeps, her twin lives the night first." | |
+| 1:30–3:30 | Slide 2 (2:47 AM story) | Lakshmi's story (say it's a composite). DCCT 55%, dead-in-bed 5–6%, one hour of warning is enough. | |
+| 3:30–5:00 | Slide 3 (India) | 2.29 lakh children; ₹1.1 lakh a year for a CGM; NPH peaks between 1 and 4 AM. Why this matters in India. | |
+| 5:00–6:30 | Slide 4 (solution) | The three steps: learn the child, live tonight first, guard the real night. Doctor stays in charge. | |
+| 6:30–8:00 | Slide 5 (data fusion) | Static FHIR record + dynamic wearable stream, as the challenge asks. Real open datasets for testing; synthetic Indian children for the demo only. | |
+| 8:00–9:30 | Slide 6 (architecture) | Walk left to right: data → preparation → three models → API → users, plus the trust layer. | |
+| 9:30–11:00 | Slide 7 (physiology twin) | What a twin is here: a Bergman glucose–insulin model with NPH/glargine, meals and exercise, fitted per child, run 500 times. | |
+| 11:00–15:30 | **Live demo** in the browser | See the demo steps below. | |
+| 15:30–17:00 | Slides 9–10 (guard + results) | 97% of 315 real night lows warned ≥15 min ahead; 65-min median warning; 0.55 false alarms per night; external UK test; forecast beats baseline. | |
+| 17:00–18:30 | Slide 11 (what didn't work) | Be honest: bedtime-only prediction was near chance for every method, so you changed the design. Judges respect this. | |
+| 18:30–19:30 | Slide 12 (sensor priority) | One week of trial-sensor data ranks who needs a CGM: 42% vs 10% of later nights. Then open the **Sensor Priority** page and change "CGMs available". | |
+| 19:30–20:30 | Slides 14–15 (India + privacy) | Languages, feature phones, NPH, FHIR/ABDM. DPDP s.9 and the Rules 2025 health exemption; doctor in the loop; CDSCO path. | |
+| 20:30–21:30 | Slides 16–17 (impact + limits) | About 1 hour of warning; 4.3×; ₹0 licence. Rollout path. Limitations and next steps. | |
+| 21:30–22:00 | Slide 18 (close) | Apollo 13 line, thank you, GitHub link. | |
+
+## Live demo steps (11:00–15:30)
+
+1. **Overview**: point at the proof numbers. They come from real patients. Click **Open tonight's board**.
+2. **Tonight Board**: "It's 9 PM. Every child's twin has already lived tonight 500 times." Show the filters, then click **Ananya**.
+3. **Ananya's twin**:
+   - Read the headline: 58% of rehearsed nights go low, around 00:30.
+   - Show the fan chart.
+   - **Why tonight is risky**: dinner insulin, NPH peaking at night, evening play.
+   - Point out the FHIR record: impaired hypo awareness, 3 strips a day.
+4. **Rehearse**:
+   - Click **Snack + NPH at bedtime**. The green band lifts and the risk drops to about 14%.
+   - Try **Reset**, then only the snack (about 38%), to show each change counts.
+5. Click **Approve plan and send to family**. Show the Kannada message.
+6. Go back and open **Arjun** (CGM). Scroll to **Night guard**, click **Replay night**, and stop when the alert line appears at 23:35. Show the Malayalam voice-call card. "Alert at 23:35, the low began at 00:20: 45 minutes of warning."
+7. **Evidence** page: switch between "More sensitive", "Balanced" and "Fewer alarms" to show the trade-off is a clinical choice.
+
+## Tips
+
+- Keep each speaker to 3–5 minutes so the video feels like a team.
+- If you need longer, spend more time on the live demo and the evidence page, not on padding.
+- Say "synthetic" every time you show Ananya or Arjun, and "real patients" every time you quote a result.

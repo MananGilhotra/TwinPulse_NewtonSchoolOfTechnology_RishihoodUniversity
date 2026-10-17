@@ -6,3 +6,4 @@ node_modules/
 dashboard/dist/
 data/raw/
 data/processed/
+docs/deck/node_modules/

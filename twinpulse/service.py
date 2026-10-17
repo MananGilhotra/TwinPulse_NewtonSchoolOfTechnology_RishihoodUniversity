@@ -229,4 +229,9 @@ def board() -> list[dict]:
 
 def validation() -> dict:
     with open(os.path.join(ROOT, "reports", "metrics.json")) as f:
-        return json.load(f)
+        out = json.load(f)
+    extra = os.path.join(ROOT, "reports", "metrics_extra.json")
+    if os.path.exists(extra):
+        with open(extra) as f:
+            out["extra"] = json.load(f)
+    return out
