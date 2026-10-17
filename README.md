@@ -15,7 +15,7 @@ A physiology-based digital twin that rehearses tonight to prevent night-time hyp
 | **Project title** | NightTwin: a physiology-based digital twin that rehearses tonight to prevent night-time hypoglycaemia in Indian children with type 1 diabetes |
 | **Condition** | Type 1 diabetes (insulin-treated diabetes); adverse event: night-time hypoglycaemia |
 | **Live demo** | https://manangilhotra.github.io/TwinPulse_NewtonSchoolOfTechnology_RishihoodUniversity/ |
-| **Demo video (20+ min)** | [NightTwin_Walkthrough.mp4 (release download)](https://github.com/MananGilhotra/TwinPulse_NewtonSchoolOfTechnology_RishihoodUniversity/releases/latest) · script: [docs/VIDEO_SCRIPT.md](docs/VIDEO_SCRIPT.md) |
+| **Demo video (22 min)** | [Watch / download NightTwin_Walkthrough.mp4](https://github.com/MananGilhotra/TwinPulse_NewtonSchoolOfTechnology_RishihoodUniversity/releases/download/v1.0/NightTwin_Walkthrough.mp4) (narrated walkthrough, 1080p) · [release page](https://github.com/MananGilhotra/TwinPulse_NewtonSchoolOfTechnology_RishihoodUniversity/releases/tag/v1.0) · script: [docs/VIDEO_SCRIPT.md](docs/VIDEO_SCRIPT.md) |
 | **Architecture diagram** | [docs/TwinPulse_Architecture.pdf](docs/TwinPulse_Architecture.pdf) |
 | **Presentation** | [docs/TwinPulse_Presentation.pdf](docs/TwinPulse_Presentation.pdf) · [.pptx](docs/TwinPulse_Presentation.pptx) |
 | **Open-source licence** | Apache License 2.0 ([LICENSE](LICENSE)) |
