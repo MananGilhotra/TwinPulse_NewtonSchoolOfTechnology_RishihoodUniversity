@@ -20,7 +20,7 @@ A physiology-based digital twin that rehearses tonight to prevent night-time hyp
 | Healthcare use case | [§5](#5-healthcare-use-case) |
 | Technical stack | [§6](#6-technical-stack) |
 | AI/ML model and framework details | [§7](#7-aiml-model-and-framework-details) |
-| Demo video (unlisted YouTube) | [§8](#8-demo-video) |
+| Demo video (20 min) | [§8](#8-demo-video) |
 | Open-source licence | [§9](#9-open-source-licence) |
 | Architecture diagram (PDF/PPT) | [§10](#10-architecture-diagram) |
 | Presentation (PDF/PPT) with project details and outcomes | [§11](#11-presentation) |
@@ -90,7 +90,7 @@ A paediatric diabetes clinic (district hospital, state programme or NGO) looks a
 
 ## 8. Demo video
 
-- **YouTube (unlisted, 20 min):** YOUTUBE_LINK_PENDING
+- **Watch the demo video (20 min):** https://drive.google.com/file/d/1uBdDl5HqWk8Q1doEUQR98Sl6v-LR-ojV/view?usp=sharing
 - Direct download (same video, 1080p): [NightTwin_Walkthrough.mp4](https://github.com/MananGilhotra/TwinPulse_NewtonSchoolOfTechnology_RishihoodUniversity/releases/download/v1.0/NightTwin_Walkthrough.mp4)
 - Script with on-screen cues: [docs/VIDEO_SCRIPT.md](docs/VIDEO_SCRIPT.md)
 
