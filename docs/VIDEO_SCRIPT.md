@@ -1,6 +1,6 @@
 # NightTwin: jury video script (Team TwinPulse)
 
-About 2711 spoken words, **about 22–25 minutes** at a calm pace (the challenge needs at least 20). Speakers: **Manas Saxena** (team leader) and **Manan Gilhotra**.
+About 2686 spoken words, **about 22–25 minutes** at a calm pace (the challenge needs at least 20). Speakers: **Manas Saxena** (team leader) and **Manan Gilhotra**.
 
 Every line says **what to have on screen** (🖥) and **what to say** (🎙). The same script drives the produced video (`scripts/make_video.py`), so the two always match.
 
@@ -185,7 +185,7 @@ Every line says **what to have on screen** (🖥) and **what to say** (🎙). Th
 
 **Manas**  
 🖥 *Slide 16 (impact and how it scales).*  
-🎙 What does this mean for a family? About an hour of warning before a night-time low, as a phone call. For families without a CGM, a fairer chance at one. And zero licence cost: NightTwin is open source under Apache 2.0, so any state programme or NGO can use it freely. Our path: a pilot in one paediatric diabetes clinic, validation on Indian children, and then the same twin for adults with type 2 diabetes on insulin, where night lows are just as dangerous. And if it works, its most important result will not be a number on a chart. It will be a mother who finally sleeps through the night.
+🎙 What does this mean for a family? About an hour of warning before a night-time low, as a phone call. And zero licence cost: NightTwin is open source under Apache 2.0, so any state programme or NGO can use it freely. Our path: a pilot in one paediatric diabetes clinic, validation on Indian children, and then the same twin for adults with type 2 diabetes on insulin, where night lows are just as dangerous. And if it works, its most important result will not be a number on a chart. It will be a mother who finally sleeps through the night.
 
 **Manan**  
 🖥 *Slide 17 (limitations).*  
@@ -195,7 +195,7 @@ Every line says **what to have on screen** (🖥) and **what to say** (🎙). Th
 
 **Manan**  
 🖥 *Show the GitHub repo page: https://github.com/MananGilhotra/TwinPulse_NewtonSchoolOfTechnology_RishihoodUniversity  Scroll through the README.*  
-🎙 Everything you have seen is open, in our public GitHub repository. The readme has our team and college, the project title, the problem and use case, the technical stack and models, the open-source licence, the architecture diagram, the presentation, this video, and a live demo link. Under the hood: Python with NumPy, SciPy and numba for the physiology twin, LightGBM and scikit-learn for the guard, FastAPI, and a React dashboard, with the twin also ported to JavaScript so it runs in your browser. One command, run dot s h, sets it all up, and every result can be regenerated from the raw open data.
+🎙 Everything you have seen is open, in our public GitHub repository. The readme has our team and college, the project title, the problem and use case, the technical stack and models, the open-source licence, the architecture diagram, the presentation, this video, and a live demo link. Under the hood: Python, numba and LightGBM, a FastAPI service, and a React dashboard, with the twin also running in your browser. One command, run dot s h, sets it all up, and every result can be regenerated from the raw open data.
 
 ## 13. Closing  ·  starts ~24:00
 

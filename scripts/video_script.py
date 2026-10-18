@@ -275,7 +275,7 @@ S = [
     # ---------------- 11. Impact ----------------
     dict(sec=10, who=LEADER, voice="presenter", scene=("slide", 16),
          cue="Slide 16 (impact and how it scales).",
-         line="What does this mean for a family? About an hour of warning before a night-time low, as a phone call. For families without a CGM, a fairer chance at one. "
+         line="What does this mean for a family? About an hour of warning before a night-time low, as a phone call. "
               "And zero licence cost: NightTwin is open source under Apache 2.0, so any state programme or NGO can use it freely. "
               "Our path: a pilot in one paediatric diabetes clinic, validation on Indian children, and then the same twin for adults with type 2 diabetes on insulin, where night lows are just as dangerous. "
               "And if it works, its most important result will not be a number on a chart. It will be a mother who finally sleeps through the night."),
@@ -290,7 +290,7 @@ S = [
          cue=f"Show the GitHub repo page: {REPO}  Scroll through the README.",
          line="Everything you have seen is open, in our public GitHub repository. The readme has our team and college, the project title, the problem and use case, "
               "the technical stack and models, the open-source licence, the architecture diagram, the presentation, this video, and a live demo link. "
-              "Under the hood: Python with NumPy, SciPy and numba for the physiology twin, LightGBM and scikit-learn for the guard, FastAPI, and a React dashboard, with the twin also ported to JavaScript so it runs in your browser. "
+              "Under the hood: Python, numba and LightGBM, a FastAPI service, and a React dashboard, with the twin also running in your browser. "
               "One command, run dot s h, sets it all up, and every result can be regenerated from the raw open data."),
 
     # ---------------- 13. Closing ----------------

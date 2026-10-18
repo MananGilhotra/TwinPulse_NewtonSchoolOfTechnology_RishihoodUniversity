@@ -37,9 +37,10 @@ OUT = os.path.join(ROOT, "docs", "video", "NightTwin_Walkthrough.mp4")
 WORK = os.path.join(ROOT, "docs", "video", "build")
 APP = os.environ.get("APP_URL", "http://localhost:8000")
 W, H, FPS = 1920, 1080, 25
-VOICES = {"presenter": ("en-IN-PrabhatNeural", "-3%"), "story": ("en-IN-NeerjaExpressiveNeural", "-6%")}
-LEAD_IN, TAIL = 0.35, 0.7          # silence before / after each spoken line (seconds)
-CHAPTER_SECONDS = 2.6
+VOICES = {"presenter": ("en-IN-PrabhatNeural", "+8%"), "story": ("en-IN-NeerjaExpressiveNeural", "+0%")}
+LEAD_IN, TAIL = 0.3, 0.5           # silence before / after each spoken line (seconds)
+CHAPTER_SECONDS = 2.2
+TARGET_TOTAL = float(os.environ.get("TARGET_SECONDS", "1200.4"))  # 20:00 - meets both "15-20 min" and "minimum 20 min"
 LOGO_SVG = open(os.path.join(ROOT, "dashboard", "public", "favicon.svg")).read()
 
 # How the voices should say a few things
@@ -81,7 +82,7 @@ async def make_voices(segs):
     for i, s in enumerate(segs):
         if not s["line"]:
             continue
-        key = hashlib.sha1((s["voice"] + s["line"]).encode()).hexdigest()[:12]
+        key = hashlib.sha1((s["voice"] + str(VOICES[s["voice"]]) + s["line"]).encode()).hexdigest()[:12]
         s["mp3"] = os.path.join(WORK, "voice", f"{key}.mp3")
         s["words_path"] = s["mp3"].replace(".mp3", ".json")
         if not os.path.exists(s["mp3"]):
@@ -450,6 +451,18 @@ def main():
         os.path.join(ROOT, "docs", "TwinPulse_Presentation.pdf"), os.path.join(slides_dir, "slide")])
 
     asyncio.run(record_all(segs))
+
+    # hit the exact running time by giving slides the remaining hold time
+    fixed = sum(s["window"][1] - s["window"][0] for s in segs if s["scene"][0] != "slide")
+    slides = [s for s in segs if s["scene"][0] == "slide"]
+    base = sum(LEAD_IN + s["audio"] + 0.25 for s in slides)
+    per = (TARGET_TOTAL - fixed - base) / max(len(slides), 1)
+    print(f"timing: fixed {fixed:.1f}s, slides {base:.1f}s, extra per slide {per:+.2f}s", flush=True)
+    if per < 0:
+        print("WARNING: script too long for the target; slides get minimal holds", flush=True)
+        per = 0.0
+    for s in slides:
+        s["target"] = LEAD_IN + s["audio"] + 0.25 + per
 
     # video clips
     prev_kind = None

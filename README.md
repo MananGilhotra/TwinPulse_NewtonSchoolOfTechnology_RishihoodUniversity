@@ -9,24 +9,39 @@ A physiology-based digital twin that rehearses tonight to prevent night-time hyp
 > **Live demo (no install):** https://manangilhotra.github.io/TwinPulse_NewtonSchoolOfTechnology_RishihoodUniversity/
 > The twin runs in your browser: open a child, rehearse a plan, and watch the night re-simulate.
 
-| | |
+## Submission checklist
+
+| Required item | Where |
 |---|---|
-| **Team name** | TwinPulse |
-| **Team members** | Manas Saxena (team leader) · Manan Gilhotra |
-| **College / incubator** | Newton School of Technology, Rishihood University |
-| **Project title** | NightTwin: a physiology-based digital twin that rehearses tonight to prevent night-time hypoglycaemia in Indian children with type 1 diabetes |
-| **Condition** | Type 1 diabetes (insulin-treated diabetes); adverse event: night-time hypoglycaemia |
-| **Live demo** | https://manangilhotra.github.io/TwinPulse_NewtonSchoolOfTechnology_RishihoodUniversity/ |
-| **Demo video (22 min)** | [Watch / download NightTwin_Walkthrough.mp4](https://github.com/MananGilhotra/TwinPulse_NewtonSchoolOfTechnology_RishihoodUniversity/releases/download/v1.0/NightTwin_Walkthrough.mp4) (produced walkthrough with recorded live demo, 1080p, captions) · [release page](https://github.com/MananGilhotra/TwinPulse_NewtonSchoolOfTechnology_RishihoodUniversity/releases/tag/v1.0) · script: [docs/VIDEO_SCRIPT.md](docs/VIDEO_SCRIPT.md) |
-| **Architecture diagram** | [docs/TwinPulse_Architecture.pdf](docs/TwinPulse_Architecture.pdf) |
-| **Presentation** | [docs/TwinPulse_Presentation.pdf](docs/TwinPulse_Presentation.pdf) · [.pptx](docs/TwinPulse_Presentation.pptx) |
-| **Open-source licence** | Apache License 2.0 ([LICENSE](LICENSE)) |
+| Team details | [§1](#1-team-details) |
+| College / incubator information | [§2](#2-college--incubator-information) |
+| Project title | [§3](#3-project-title) |
+| Problem statement | [§4](#4-problem-statement) |
+| Healthcare use case | [§5](#5-healthcare-use-case) |
+| Technical stack | [§6](#6-technical-stack) |
+| AI/ML model and framework details | [§7](#7-aiml-model-and-framework-details) |
+| Demo video (unlisted YouTube) | [§8](#8-demo-video) |
+| Open-source licence | [§9](#9-open-source-licence) |
+| Architecture diagram (PDF/PPT) | [§10](#10-architecture-diagram) |
+| Presentation (PDF/PPT) with project details and outcomes | [§11](#11-presentation) |
+| All files and links public | [§12](#12-public-access) |
 
-![Tonight rehearsed 500 times](docs/figures/tonight_rehearsal.png)
+## 1. Team details
 
----
+| Team name | Member | Role |
+|---|---|---|
+| **TwinPulse** | **Manas Saxena** | Team leader |
+| | **Manan Gilhotra** | Team member |
 
-## 1. Problem statement and healthcare use case
+## 2. College / incubator information
+
+**Newton School of Technology, Rishihood University**
+
+## 3. Project title
+
+**NightTwin: a physiology-based digital twin that rehearses tonight to prevent night-time hypoglycaemia in Indian children with type 1 diabetes**
+
+## 4. Problem statement
 
 - **India has more children with type 1 diabetes (T1D) than any other country:** 2.29 lakh under 20 (IDF Diabetes Atlas 2021). The 2025 Atlas counts 9.4 lakh Indians with T1D.
 - **Insulin keeps them alive, and its most feared side effect is hypoglycaemia (low blood sugar).**
@@ -34,17 +49,95 @@ A physiology-based digital twin that rehearses tonight to prevent night-time hyp
   - "Dead-in-bed" syndrome, thought to follow severe night lows, is linked to about 5–6% of deaths in people with T1D under 40.
 - **A CGM with low alarms costs about ₹4,000–4,700 per 14-day sensor** (₹1.1–1.2 lakh a year). Most families use finger-pricks and set a 2 AM alarm.
 - **Timing makes it worse:** the cheaper human NPH insulin many programmes supply peaks between 1 and 4 AM.
+- **No clinic tool says which nights are dangerous**, and a doctor cannot safely test a change in insulin or routine before the child lives through it.
 
-**Why type 1 diabetes, and why it fits the brief.** Diabetes is India's most prevalent chronic disease, and hypoglycaemia is the deadliest *acute* adverse event of its treatment. We start with the group that has the least protection: India has the largest number of children with T1D of any country. The same twin engine extends directly to adults with type 2 diabetes who use insulin or sulfonylureas (roadmap). Insulin-treated diabetes is also where "simulating a patient's unique physiology" is best established: the UVA/Padova glucose–insulin simulator was accepted by the US FDA in 2008 as a substitute for animal trials in testing insulin treatments.
+**Why type 1 diabetes fits the brief.** Diabetes is India's most prevalent chronic disease, and hypoglycaemia is the deadliest *acute* adverse event of its treatment. We start with the group that has the least protection; the same twin extends directly to adults with type 2 diabetes on insulin or sulfonylureas. Insulin-treated diabetes is also where "simulating a patient's unique physiology" is best established: the UVA/Padova glucose–insulin simulator was accepted by the US FDA in 2008 as a substitute for animal trials in testing insulin treatments.
 
-**Use case.** A paediatric diabetes clinic (district hospital, state programme, NGO) looks after hundreds of children. TwinPulse gives it four tools:
+## 5. Healthcare use case
+
+A paediatric diabetes clinic (district hospital, state programme or NGO) looks after hundreds of children. NightTwin gives it four tools:
 
 1. **Tonight Board.** At 9 PM, every child's twin "lives tonight" 500 times. Children are ranked by their risk of a night low, so the educator knows whom to call before bed.
 2. **Rehearse a plan.** The doctor tries a change on the twin and sees the night's risk move *before* prescribing it: a bedtime snack, a smaller dinner dose after a sports day, or moving NPH from dinner to bedtime. The approved plan goes to the family in their language.
 3. **Night guard (CGM families).** A real-time model warns about an hour before a low and calls the parent. Voice calls work on feature phones.
 4. **Sensor Priority (finger-prick families).** A 14-day trial sensor ranks which children will have the most night lows, so a programme's scarce CGMs go to those who need them most.
 
-## 2. How the data streams are fused
+**Adverse event predicted:** a night-time low (glucose below 70 mg/dL for 15+ minutes), warned up to 2 hours in advance.
+
+## 6. Technical stack
+
+| Layer | Technology |
+|---|---|
+| Language and data | Python 3.12, pandas, NumPy, SciPy |
+| Physiology twin engine | numba (compiled simulator), SciPy least-squares fitting |
+| Machine learning | LightGBM, scikit-learn |
+| API | FastAPI, Uvicorn |
+| Dashboard | React 18, Vite, Recharts; JavaScript port of the twin ([dashboard/src/twin.js](dashboard/src/twin.js)) for the in-browser live demo |
+| Health records | FHIR R4 JSON (ABDM/ABHA-ready) |
+| Hosting | GitHub Pages (live demo) |
+| Testing | pytest |
+| Documents | matplotlib (figures, architecture PDF), pptxgenjs (presentation) |
+
+## 7. AI/ML model and framework details
+
+| Model | What it does | Method | Validation |
+|---|---|---|---|
+| **A. Physiology twin** | Simulates tonight 500 times per child; what-if rehearsal; counterfactual explanations | Bergman minimal model extended with subcutaneous rapid and long-acting (NPH/glargine) insulin depots, gut carbohydrate absorption and a 4-hour exercise effect. Personalised per child by least squares on past nights, with insulin sensitivity anchored to the 1800 rule. 500-member Monte Carlo ensemble | Walk-forward on real nights |
+| **B. Night guard** | Predicts a low within 60 / 120 minutes; forecasts glucose at +30/60/120 min | LightGBM gradient-boosted trees on glucose lags and slopes, insulin and carbs on board, steps, heart-rate deviation and time of day; 15-minute risk smoothing | 5-fold patient-held-out (HUPA-UCM) + external test (T1D-UOM) |
+| **C. Sensor priority** | Ranks which children need a CGM most | Week-1 time-below-range ranking | Spearman 0.63 on 29 real patients |
+
+**Key results on real patients the models never saw:** 97% of 315 night-time lows were warned ≥15 min ahead, with a median warning of 65 min and 0.55 false alarms per night. On the external UK test: 68%, 62 min and 0.48. Full results are in [Results](#results-real-patients-only).
+
+## 8. Demo video
+
+- **YouTube (unlisted, 20 min):** YOUTUBE_LINK_PENDING
+- Direct download (same video, 1080p): [NightTwin_Walkthrough.mp4](https://github.com/MananGilhotra/TwinPulse_NewtonSchoolOfTechnology_RishihoodUniversity/releases/download/v1.0/NightTwin_Walkthrough.mp4)
+- Script with on-screen cues: [docs/VIDEO_SCRIPT.md](docs/VIDEO_SCRIPT.md)
+
+**What the video covers:**
+- the problem and the idea
+- how we meet the brief
+- the architecture and the physiology twin
+- a recorded live demo of every dashboard feature
+- results on real patients, including what did not work
+- privacy and DPDP compliance
+- impact and limitations
+
+## 9. Open-source licence
+
+**Apache License 2.0**. See [LICENSE](LICENSE). The datasets used are CC BY 4.0 (see [Data](#data-sandbox-rules-open-and-synthetic-only)).
+
+## 10. Architecture diagram
+
+- **PDF:** [docs/TwinPulse_Architecture.pdf](docs/TwinPulse_Architecture.pdf)
+- A preview is in the [Architecture](#architecture) section below.
+
+## 11. Presentation
+
+- **PDF:** [docs/TwinPulse_Presentation.pdf](docs/TwinPulse_Presentation.pdf)
+- **PPT:** [docs/TwinPulse_Presentation.pptx](docs/TwinPulse_Presentation.pptx)
+
+**18 slides covering:**
+- the problem and the solution
+- data fusion and the architecture
+- the twin and the live demo
+- results and outcomes
+- privacy, impact and limitations
+
+## 12. Public access
+
+This repository, the live demo (https://manangilhotra.github.io/TwinPulse_NewtonSchoolOfTechnology_RishihoodUniversity/), the release video and all documents are public and need no login or permissions.
+
+---
+
+# Project details
+
+> **Live demo (no install):** https://manangilhotra.github.io/TwinPulse_NewtonSchoolOfTechnology_RishihoodUniversity/
+> Open a child, rehearse a plan, and watch the night re-simulate in your browser.
+
+![Tonight rehearsed 500 times](docs/figures/tonight_rehearsal.png)
+
+## How the data streams are fused
 
 | Static / historical (health record) | Dynamic / real-time (wearables) |
 |---|---|
@@ -52,7 +145,7 @@ A physiology-based digital twin that rehearses tonight to prevent night-time hyp
 
 The record **parameterises** the twin: daily dose sets insulin sensitivity, the regimen sets the insulin action profile, and the hypo-awareness flag is shown with the risk. The wearable stream **drives and corrects** it every five minutes.
 
-## 3. Architecture
+## Architecture
 
 ![Architecture](docs/figures/architecture.png)
 
@@ -68,7 +161,7 @@ The record **parameterises** the twin: daily dose sets insulin sensitivity, the 
 
 **Service and UI:** FastAPI ([api/main.py](api/main.py)) and a React + Recharts doctor dashboard ([dashboard/](dashboard/)). Pages: Overview, Tonight Board, Twin view, Rehearse, Night guard replay, Sensor Priority, Evidence, Privacy & India.
 
-## 4. Data (sandbox rules: open and synthetic only)
+## Data (sandbox rules: open and synthetic only)
 
 | Data | Contents | Use | Licence |
 |---|---|---|---|
@@ -76,7 +169,7 @@ The record **parameterises** the twin: daily dose sets insulin sensitivity, the 
 | [T1D-UOM](https://doi.org/10.5281/zenodo.15806142) (UK) | T1D, about 3 months each: CGM, pump and injected insulin, food, Garmin activity/heart rate, sleep | External test (different devices) | CC BY 4.0 |
 | Synthetic Indian cohort ([twinpulse/synth.py](twinpulse/synth.py)) | 12 children × 14 days, Indian routines, NPH/premixed/glargine regimens, FHIR R4 records | **Dashboard demo only, never used for scoring** | Generated |
 
-## 5. Results (real patients only)
+## Results (real patients only)
 
 Patients were split into 5 groups, so every score is on people the model never saw. T1D-UOM is an independent external test.
 
@@ -90,7 +183,7 @@ Patients were split into 5 groups, so every score is on people the model never s
 | AUROC, low within 60 min, 22:00–06:00 | **0.93** | 0.90 |
 | AUROC, low within 2 h, 22:00–06:00 | **0.88** | 0.78 |
 
-| Glucose forecast RMSE (mg/dL) | Assume no change | Extend trend | TwinPulse | Clarke A+B |
+| Glucose forecast RMSE (mg/dL) | Assume no change | Extend trend | NightTwin | Clarke A+B |
 |---|---|---|---|---|
 | 30 min | 21.2 | 23.5 | **18.1** | 97.6% |
 | 60 min | 34.8 | 44.9 | **30.4** | 94.4% |
@@ -115,18 +208,7 @@ Patients were split into 5 groups, so every score is on people the model never s
 
 All numbers are regenerated by the scripts below. Raw outputs: [reports/metrics.json](reports/metrics.json), [reports/metrics_extra.json](reports/metrics_extra.json).
 
-## 6. Technical stack
-
-- **Language and data:** Python 3.12, pandas, NumPy, SciPy (least-squares fitting)
-- **Twin engine:** numba
-- **ML and evaluation:** LightGBM, scikit-learn
-- **API:** FastAPI + Uvicorn
-- **Dashboard:** React 18, Vite, Recharts; a JavaScript port of the twin ([dashboard/src/twin.js](dashboard/src/twin.js)) powers the static live demo
-- **Health records:** FHIR R4 JSON
-- **Tests:** pytest
-- **Documents:** matplotlib (figures and architecture PDF), pptxgenjs (deck)
-
-## 7. Run it
+## Run it
 
 **Fastest:** open the [live demo](https://manangilhotra.github.io/TwinPulse_NewtonSchoolOfTechnology_RishihoodUniversity/).
 
@@ -161,7 +243,7 @@ Then open http://localhost:8000. Trained models and the synthetic demo cohort ar
 
 **Development mode:** run `.venv/bin/uvicorn api.main:app --port 8000`, then `cd dashboard && npm install && npm run dev` (http://localhost:5173).
 
-## 8. Repository layout
+## Repository layout
 
 ```
 api/                FastAPI service
@@ -175,12 +257,12 @@ reports/            metrics (JSON)
 docs/               architecture PDF, presentation (PDF/PPTX), figures, screenshots, video script
 ```
 
-## 9. Privacy, safety and India fit
+## Privacy, safety and India fit
 
 - **DPDP Act 2023 (children's data):**
   - Section 9 requires verifiable parental consent and bars tracking or behavioural monitoring of children.
   - The DPDP Rules 2025 (Fourth Schedule) exempt clinical establishments and healthcare professionals when processing is limited to providing health services to the child.
-  - TwinPulse is therefore deployed by the clinic as data fiduciary. Parental consent is still recorded (a FHIR `Consent` resource), and there is no advertising or analytics.
+  - NightTwin is therefore deployed by the clinic as data fiduciary. Parental consent is still recorded (a FHIR `Consent` resource), and there is no advertising or analytics.
 - **Doctor in the loop:** the twin only shows simulated outcomes. The doctor approves every change, and families receive only approved actions.
 - **Not a medical device:** this is decision support. A real deployment would follow CDSCO's medical device software pathway after a supervised pilot.
 - **India fit:**
@@ -189,14 +271,14 @@ docs/               architecture PDF, presentation (PDF/PPTX), figures, screensh
   - Indian routines: late dinners, evening play, school tiffin.
   - Alerts in Kannada, Hindi and Malayalam, including voice calls for feature phones.
 
-## 10. Limitations and next steps
+## Limitations and next steps
 
 - The models were trained on adults in Spain and validated on adults in the UK, not Indian children. **Next step:** a pilot with an Indian paediatric diabetes clinic, measuring night lows, parent sleep and false alarms.
 - The demo children are synthetic.
 - Translations are drafts for native-speaker review.
 - Roadmap: extend the same twin to adults with type 2 diabetes on insulin or sulfonylureas.
 
-## 11. References
+## References
 
 1. IDF Diabetes Atlas, 10th ed. (2021) and 11th ed. (2025), International Diabetes Federation.
 2. DCCT Research Group. Epidemiology of severe hypoglycemia in the Diabetes Control and Complications Trial. *Am J Med* 1991. Reviewed in: Nocturnal Hypoglycemia in the Era of CGM, *PMC11418455*.
